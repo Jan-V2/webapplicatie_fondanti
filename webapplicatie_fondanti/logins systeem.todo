@@ -1,0 +1,7 @@
+login systeem todos:
+  benodigde paginas:
+    ☐ login pagina
+    ☐ wachtwoord herstellen pagina.
+    de rest van de paginas moeten eruit en het email adress van de admin moet gehardcode worden.
+    de handingste manier om dit te doen in om het loginsysteem van de template te
+    gebruiken en dat wat we niet nodig hebben eruit te halen.
