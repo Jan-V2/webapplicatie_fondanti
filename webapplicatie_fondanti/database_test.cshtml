@@ -1,0 +1,54 @@
+﻿@using System.Collections.Generic;
+@using System.Collections.ObjectModel;
+@using System.Linq;
+
+
+@{
+    Layout = "~/_SiteLayout.cshtml";
+    Page.Title = "database test";
+
+    // Db_Stuff.Taarten_Data data = new Db_Stuff.Mssql_Taarten_Data();
+
+    Db_Stuff.Admin_Db_methods admin_test = new Db_Stuff.Mssql_Admin_Db_methods();
+
+}
+
+start
+@dump_onderdeel_array(admin_test.data.bekleding, "bekleding")
+na insert
+@{
+    @admin_test.insert_onderdeel("BEKLEDING", new Db_Stuff.Onderdeel("testonderdeel", 342));
+    @dump_onderdeel_array(admin_test.data.bekleding, "bekleding");
+}
+na update
+@{
+    @admin_test.update_prijs_onderdeel("BEKLEDING", "testonderdeel", 400);
+    @dump_onderdeel_array(admin_test.data.bekleding, "bekleding");
+}
+na delete
+@{
+    @admin_test.delete_onderdeel("BEKLEDING", "testonderdeel");
+    @dump_onderdeel_array(admin_test.data.bekleding, "bekleding");
+}
+
+@helper dump_db_contents(Db_Stuff.Taarten_Data data)
+    {
+        @dump_onderdeel_array(data.bekleding, "bekleding");
+        @dump_onderdeel_array(data.nivea_van_decoratie, "deco");
+        @dump_onderdeel_array(data.vulling, "vulling");
+        @dump_onderdeel_array(data.type_cake, "cake");
+}
+
+@helper dump_onderdeel_array(ReadOnlyCollection<Db_Stuff.Onderdeel> data, string naam)
+    {
+
+        <div style="padding-left:12px">
+            @naam
+            @foreach (var onderdeel in data)
+            {
+                <div style="padding-left:12px">
+                    @onderdeel.naam  @onderdeel.prijs_in_cent
+                </div>
+            }
+        </div>
+}
