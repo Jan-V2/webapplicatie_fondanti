@@ -2,49 +2,75 @@
     Layout = "~/_SiteLayout.cshtml";
     Page.Title = "Home Page";
 }
-
 @{
 
 }
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <title></title>
+</head>
+<body>
+    <div class="row">
+        <form class="col s12">
+            <div class="row">
+                <div class="input-field col s3">
+                    <br />
+                    <input id="first_name" type="text" name="voornaam">
+                    <label for="first_name">Voornaam:</label>
+                </div>
+                <div class="input-field col s3">
+                    <br />
+                    <input id="last_name" type="text" name="achternaam">
+                    <label for="last_name">Achternaam:</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <br />
+                    <input id="email" type="email" name="email">
+                    <label for="email">Email adres:</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <br />
+                    <input id="input_text" type="text" name="telefoonnummer">
+                    <label for="input_text">Telefoon nummer:</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s4">
+                    <br />
+                    <input id="input_text" type="text" name="straat">
+                    <label for="input_text">Straatnaam:</label>
+                </div>
+                <div class="input-field col s1">
+                    <br />
+                    <input id="input_text" type="text" name="huisnummer">
+                    <label for="input_text">Huis nummer:</label>
+                </div>
+                <div class="input-field col s1">
+                    <br />
+                    <input id="input_text" type="text" name="toevoeging">
+                    <label for="input_text">Toevoeging:</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s3">
+                    <br />
+                    <input id="input_text" type="text" name="postcode">
+                    <label for="input_text">Postcode:</label>
+                </div>
 
-@section featured {
-    <section class="featured">
-        <div class="content-wrapper">
-            <hgroup class="title">
-                <h1>@Page.Title.</h1>
-                <h2>Modify this template to jump-start your ASP.NET Web Pages application.</h2>
-            </hgroup>
-            <p>
-                To learn more about ASP.NET Web Pages, visit
-                <a href="https://asp.net/webpages" title="ASP.NET Web Pages Website">https://asp.net/webpages</a>.
-                The page features <mark>videos, tutorials, and samples</mark> to help you get the most from ASP.NET Web Pages.
-                If you have any questions about ASP.NET Web Pages, visit
-                <a href="https://forums.iis.net/1166.aspx" title="ASP.NET Web Pages Forum">our forums</a>.
-            </p>
-        </div>
-    </section>
-}
+                <div class="input-field col s3">
+                    <br />
+                    <input id="input_text" type="text" name="plaats">
+                    <label for="input_text">Plaats:</label>
+                </div>
+            </div>
 
-<h3>We suggest the following:</h3>
-
-<ol class="round">
-    <li class="one">
-        <h5>Getting Started</h5>
-        ASP.NET Web Pages and the new Razor syntax provide a fast, approachable, and lightweight way to combine server code with HTML
-        to create dynamic web content. Connect to databases, add video, link to social networking sites, and include many more features
-        that let you create beautiful sites using the latest web standards.
-        <a href="https://go.microsoft.com/fwlink/?LinkId=245139">Learn more…</a>
-    </li>
-
-    <li class="two">
-        <h5>Add NuGet packages and jump start your coding</h5>
-        NuGet makes it easy to install and update free libraries and tools.
-        <a href="https://go.microsoft.com/fwlink/?LinkId=245140">Learn more…</a>
-    </li>
-
-    <li class="three">
-        <h5>Find Web Hosting</h5>
-        You can easily find a web hosting company that offers the right mix of features and price for your applications.
-        <a href="https://go.microsoft.com/fwlink/?LinkId=245143">Learn more…</a>
-    </li>
-</ol>
+        </form>
+    </div>
+</body>
+</html>
