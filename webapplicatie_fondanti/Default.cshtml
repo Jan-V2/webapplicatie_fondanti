@@ -4,14 +4,19 @@
 }
 
 @{
-
+    string email = "balbal@mail.nl";
+    Random rnd = new Random();
+    if (Session["UserId"] == null)
+    {
+        Session["UserId"] = rnd.Next(1, 100).ToString();
+    }
 }
-
 @section featured {
     <section class="featured">
         <div class="content-wrapper">
             <hgroup class="title">
                 <h1>@Page.Title.</h1>
+                @Session["UserId"]
                 <h2>Modify this template to jump-start your ASP.NET Web Pages application.</h2>
             </hgroup>
             <p>

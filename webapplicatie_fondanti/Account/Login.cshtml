@@ -40,10 +40,6 @@
             password = Request.Form["password"];
             rememberMe = Request.Form["rememberMe"].AsBool();
 
-            if (WebSecurity.UserExists(email) && WebSecurity.GetPasswordFailuresSinceLastSuccess(email) > 4 && WebSecurity.GetLastPasswordFailureDate(email).AddSeconds(60) > DateTime.UtcNow) {
-                Response.Redirect("~/Account/AccountLockedOut");
-                return;
-            }
 
             // Attempt to log in using provided credentials
             if (WebSecurity.Login(email, password, rememberMe)) {
