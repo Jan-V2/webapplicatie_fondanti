@@ -1,10 +1,12 @@
 ﻿@{
     Layout = "~/_SiteLayout.cshtml";
     Page.Title = "About";
+
 }
 
 <hgroup class="title">
     <h1>@Page.Title.</h1>
+    @Session["UserId"].ToString();
     <h2>Your app description page.</h2>
 </hgroup>
 

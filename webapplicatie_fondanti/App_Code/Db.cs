@@ -7,7 +7,7 @@ using WebMatrix.Data;
 public static class Db_Stuff
 {
 
-    static private Database get_db_con()
+    static public Database get_db_con()
     {
         string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True";
         string provider = "System.Data.SqlClient";
