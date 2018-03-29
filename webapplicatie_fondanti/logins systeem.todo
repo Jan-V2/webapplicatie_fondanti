@@ -1,7 +1,11 @@
+login systeem ontwerp:
+  als je de website eerst aanmaakt zitten er geen accounts in.
+  als je de eerste keer naar de /admin pangina gaat moet je een acoount aamaken met een email en wachtwoord.
+  die email krijgt een bericht met een unique link en een password reset code
+  (misschien zelfs in aparte berichten zodat je de code kunt verwijderen)
+  hierna geeft de /admin pangina een 404
+  vanaf nu kan de admin inloggen met de unique link met het wachtwoord
+
+
+
 login systeem todos:
-  benodigde paginas:
-    ☐ login pagina
-    ☐ wachtwoord herstellen pagina.
-    de rest van de paginas moeten eruit en het email adress van de admin moet gehardcode worden.
-    de handingste manier om dit te doen in om het loginsysteem van de template te
-    gebruiken en dat wat we niet nodig hebben eruit te halen.
