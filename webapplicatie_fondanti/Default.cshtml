@@ -1,9 +1,33 @@
 ﻿@{
-    Layout = "~/_SiteLayout.cshtml";
-    Page.Title = "Home Page";
-}
-@{
+    var voornaam = Request.Form["voornaam"];
+    var achternaam = Request.Form["achternaam"];
+    var email = Request.Form["email"];
+    var telefoonnummer = Request.Form["telefoonnummer"];
+    var straat = Request.Form["straat"];
+    var huisnummer = Request.Form["huisnummer"];
+    var toevoeging = Request.Form["toevoeging"];
+    var postcode = Request.Form["postcode"];
+    var plaats = Request.Form["plaats"];
+    var email2 = "mous1700@student.nhl.nl";
+    if (IsPost)
+    {
+        for (int i = 0; i < 1; i++)
+        {
+            WebMail.Send(
+                       to: email,
+                       cc: email2,
+                       subject: "Prijs indicatie Fondanti",
+                       body: "Beste " + voornaam + " " + achternaam + "\r\n" +
+                       "Wij hebben gezien dat u een taart heeft samengesteld. De indicatie prijs van uw taart is: " + "\r\n" +
+                       "De samenstelling van uw taart is: " + "\r\n" +
+                       "Uw overig ingevulde gegevens zijn: " + "\r\n" +
+                       telefoonnummer + "\r\n" +
+                       straat + " " + huisnummer + toevoeging + "\r\n" +
+                       postcode + " " + plaats
+                       );
+        }
 
+    }
 }
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -12,43 +36,43 @@
 </head>
 <body>
     <div class="row">
-        <form class="col s12">
+        <form class="col s12" method="post">
             <div class="row">
                 <div class="input-field col s3">
                     <br />
-                    <input id="first_name" type="text" name="voornaam">
-                    <label for="first_name">Voornaam:</label>
+                    <input id="first_name" type="text" name="voornaam" required>
+                    <label for="first_name">Voornaam:*</label>
                 </div>
                 <div class="input-field col s3">
                     <br />
-                    <input id="last_name" type="text" name="achternaam">
-                    <label for="last_name">Achternaam:</label>
+                    <input id="last_name" type="text" name="achternaam" required>
+                    <label for="last_name">Achternaam:*</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s6">
                     <br />
-                    <input id="email" type="email" name="email">
-                    <label for="email">Email adres:</label>
+                    <input id="email" type="email" name="email" required>
+                    <label for="email">Email adres:*</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s6">
                     <br />
-                    <input id="input_text" type="text" name="telefoonnummer">
-                    <label for="input_text">Telefoon nummer:</label>
+                    <input id="input_text" type="tel" name="telefoonnummer" maxlength="10" required>
+                    <label for="input_text">Telefoon nummer:*</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s3">
                     <br />
-                    <input id="input_text" type="text" name="straat">
-                    <label for="input_text">Straatnaam:</label>
+                    <input id="input_text" type="text" name="straat" required>
+                    <label for="input_text">Straatnaam:*</label>
                 </div>
                 <div class="input-field col s2">
                     <br />
-                    <input id="input_text" type="text" name="huisnummer">
-                    <label for="input_text">Huis nummer:</label>
+                    <input id="input_text" type="text" name="huisnummer" required>
+                    <label for="input_text">Huis nummer:*</label>
                 </div>
                 <div class="input-field col s1">
                     <br />
@@ -59,14 +83,14 @@
             <div class="row">
                 <div class="input-field col s3">
                     <br />
-                    <input id="input_text" type="text" name="postcode">
-                    <label for="input_text">Postcode:</label>
+                    <input id="input_text" type="text" name="postcode" required maxlength="6">
+                    <label for="input_text">Postcode:*</label>
                 </div>
 
                 <div class="input-field col s3">
                     <br />
-                    <input id="input_text" type="text" name="plaats">
-                    <label for="input_text">Plaats:</label>
+                    <input id="input_text" type="text" name="plaats" required>
+                    <label for="input_text">Plaats:*</label>
                 </div>
             </div>
             <div>
