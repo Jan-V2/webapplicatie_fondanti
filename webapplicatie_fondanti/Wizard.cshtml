@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/StyleSheetwizard.css">
     <title></title>
     <script>
         $(document).ready(function () {
@@ -14,14 +15,52 @@
     </script>
 </head>
 <body>
-    <div class="input-field col s12">
+    <div class="row">
+        <div class="col s3">
+            Aantal personen:
+            <div class="input-field inline">
+                <input id="personen_inline" type="personen" class="validate">
+            </div>
+        </div>
+    </div>
+    <div class="input-field col s3" id="breed">
         <select>
-            <option value="" disabled selected>Choose your option</option>
-            <option value="1">Option 1</option>
-            <option value="2">Option 2</option>
-            <option value="3">Option 3</option>
+            <option value="" selected>Soort taart</option>
+            <option value="1">Chocolate (2 euro pp)</option>
+            <option value="2">Red velvet (3 euro pp)</option>
+            <option value="3">Biscuitdeeg (1 euro pp)</option>
         </select>
-        <label>Materialize Select</label>
+    </div>
+    <div class="input-field col s3" id="breed">
+        <select>
+            <option value="" selected>Bekleding</option>
+            <option value="1">Fondant (1 euro pp)</option>
+            <option value="2">Marsepein (3 euro pp)</option>
+        </select>
+    </div>
+    <div class="input-field col s3" id="breed">
+        <select>
+            <option value="" selected>Vulling van de taart (1 per laag)</option>
+            <option value="1">Champagneroom met verse frambozen (3 euro pp)</option>
+            <option value="2">Gele room met Oreo vulling (2 euro pp)</option>
+            <option value="3">Kindervulling (vruchten compote en room) (1 euro pp)</option>
+        </select>
+    </div>
+    <div class="input-field col s3" id="breed">
+        <select>
+            <option value="" selected>Niveau van decoratie:</option>
+            <option value="1">Eenvoudig (1 euro pp)</option>
+            <option value="2">Gemiddeld (2 euro pp)</option>
+            <option value="3">Uitgebreid (3 euro pp)</option>
+        </select>
+    </div>
+    <div class="row">
+        <div class="col s3">
+            Datum bezorging van de taart:
+            <div class="input-field inline">
+                <input id="Date_inline" type="date" class="validate">
+            </div>
+        </div>
     </div>
 </body>
 </html>
