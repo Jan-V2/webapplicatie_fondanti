@@ -55,6 +55,20 @@
                     <option value="3">Kindervulling (vruchten compote en room) (1 euro pp)</option>
                 </select>
             </div>
+            <script type="text/javascript">
+                function showfield(name) {
+                    if (name == 'Other') document.getElementById('div1').innerHTML = 'Other: <input type="text" name="other" />';
+                    else document.getElementById('div1').innerHTML = '';
+                }
+            </script>
+
+            <select name="travel_arriveVia" id="travel_arriveVia" onchange="showfield(this.options[this.selectedIndex].value)">
+                <option selected="selected">Allergieën ...</option>
+                <option value="Plane">Glutenvrij</option>
+                <option value="Train">geen</option>
+                <option value="Other">Anders, namelijk</option>
+            </select>
+            <div id="div1"></div>
             <div class="input-field col s3" id="breed">
                 <select required>
                     <option value="" selected disabled>Niveau van decoratie:</option>
@@ -63,6 +77,17 @@
                     <option value="3">Uitgebreid (3 euro pp)</option>
                 </select>
             </div>
+            <form action="#">
+                <div class="file-field input-field">
+                    <div class="btn">
+                        <span>File</span>
+                        <input type="file" multiple>
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text" placeholder="(Optioneel) Upload een foto ter inspiratie">
+                    </div>
+                </div>
+            </form>
 
             <div class="col s3 row">
                 Wanneer wilt u de taart hebben:
@@ -73,23 +98,6 @@
             <input type="submit" name="name" value="Prijs berekenen" />
         </form>
     </div>
-
-    <script type="text/javascript">
-        function showfield(name) {
-            if (name == 'Other') document.getElementById('div1').innerHTML = 'Other: <input type="text" name="other" />';
-            else document.getElementById('div1').innerHTML = '';
-        }
-    </script>
-
-    <select name="travel_arriveVia" id="travel_arriveVia" onchange="showfield(this.options[this.selectedIndex].value)">
-        <option selected="selected">Please select ...</option>
-        <option value="Plane">Plane</option>
-        <option value="Train">Train</option>
-        <option value="Own Vehicle">Own Vehicle</option>
-        <option value="Other">Other</option>
-    </select>
-    <div id="div1"></div>
-
     <br />
 </body>
 </html>
