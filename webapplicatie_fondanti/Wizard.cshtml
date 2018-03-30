@@ -1,5 +1,6 @@
 ﻿@{
-
+    var datum = DateTime.Today;
+    int persoon = Convert.ToInt16(Request.Form["personen"]);
 }
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -15,52 +16,62 @@
     </script>
 </head>
 <body>
-    <div class="row">
-        <div class="col s3">
-            Aantal personen:
-            <div class="input-field inline">
-                <input id="personen_inline" type="personen" class="validate">
+    <div class="formulier">
+        <form action="/" method="post" class="breed">
+
+            <div class="col s3 row">
+                Aantal personen:
+                <div class="input-field inline">
+                    <input id="personen_inline" type="number" class="validate" name="personen" required>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="input-field col s3" id="breed">
-        <select>
-            <option value="" selected>Soort taart</option>
-            <option value="1">Chocolate (2 euro pp)</option>
-            <option value="2">Red velvet (3 euro pp)</option>
-            <option value="3">Biscuitdeeg (1 euro pp)</option>
-        </select>
-    </div>
-    <div class="input-field col s3" id="breed">
-        <select>
-            <option value="" selected>Bekleding</option>
-            <option value="1">Fondant (1 euro pp)</option>
-            <option value="2">Marsepein (3 euro pp)</option>
-        </select>
-    </div>
-    <div class="input-field col s3" id="breed">
-        <select>
-            <option value="" selected>Vulling van de taart (1 per laag)</option>
-            <option value="1">Champagneroom met verse frambozen (3 euro pp)</option>
-            <option value="2">Gele room met Oreo vulling (2 euro pp)</option>
-            <option value="3">Kindervulling (vruchten compote en room) (1 euro pp)</option>
-        </select>
-    </div>
-    <div class="input-field col s3" id="breed">
-        <select>
-            <option value="" selected>Niveau van decoratie:</option>
-            <option value="1">Eenvoudig (1 euro pp)</option>
-            <option value="2">Gemiddeld (2 euro pp)</option>
-            <option value="3">Uitgebreid (3 euro pp)</option>
-        </select>
-    </div>
-    <div class="row">
-        <div class="col s3">
-            Datum bezorging van de taart:
-            <div class="input-field inline">
-                <input id="Date_inline" type="date" class="validate">
+
+            <div class="col s3 row">
+                Aantal lagen: (minimaal 15 personen per laag.)
+                <div class="input-field inline">
+                    <input id="personen_inline" type="number" name="lagen" class="validate" min="1" required />
+                </div>
             </div>
-        </div>
+            <div class="input-field col s3" id="breed">
+                <select required>
+                    <option value="" selected disabled>Kies uw taart soort</option>
+                    <option value="1">Chocolate (2 euro pp)</option>
+                    <option value="2">Red velvet (3 euro pp)</option>
+                    <option value="3">Biscuitdeeg (1 euro pp)</option>
+                </select>
+            </div>
+            <div class="input-field col s3" id="breed">
+                <select required>
+                    <option value="" selected disabled>kies uw bekleding</option>
+                    <option value="1">Fondant (1 euro pp)</option>
+                    <option value="2">Marsepein (3 euro pp)</option>
+                </select>
+            </div>
+            <div class="input-field col s3" id="breed">
+                <select required>
+                    <option value="" selected disabled>Kies uw taart vulling (1 per laag)</option>
+                    <option value="1">Champagneroom met verse frambozen (3 euro pp)</option>
+                    <option value="2">Gele room met Oreo vulling (2 euro pp)</option>
+                    <option value="3">Kindervulling (vruchten compote en room) (1 euro pp)</option>
+                </select>
+            </div>
+            <div class="input-field col s3" id="breed">
+                <select required>
+                    <option value="" selected disabled>Niveau van decoratie:</option>
+                    <option value="1">Eenvoudig (1 euro pp)</option>
+                    <option value="2">Gemiddeld (2 euro pp)</option>
+                    <option value="3">Uitgebreid (3 euro pp)</option>
+                </select>
+            </div>
+
+            <div class="col s3 row">
+                Wanneer wilt u de taart hebben:
+                <div class="input-field inline">
+                    <input id="Date_inline" type="date" class="validate" min="@DateTime.Today" required />
+                </div>
+            </div>
+            <input type="submit" name="name" value="Prijs berekenen" />
+        </form>
     </div>
 </body>
 </html>
