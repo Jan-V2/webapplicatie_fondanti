@@ -1,0 +1,94 @@
+﻿@using System.Collections.Generic;
+@using System.Collections.ObjectModel;
+@using System.Linq;
+
+
+@helper insert_fieldset()
+    {
+        <link href="~/Content/css/Table.css" rel="stylesheet" type="text/css" />
+        <fieldset style="margin: auto;width: 400px;">
+            <legend>Voeg hier een nieuw onderdeel toe</legend>
+            <table class="blueTable" >
+                <tbody>
+                    <tr>
+                        <td>Type</td>
+                        <td>Naam</td>
+                        <td>Prijs</td>
+                    </tr>
+                    <tr id="insert_onderdeel_table">
+                        <td>
+                            <select>
+                                @foreach (var naam in Db_Stuff.type_namen)
+                                {
+                                    <option value="@naam">@naam</option>
+                                }
+                            </select>
+                        </td>
+                        <td>
+                            <input type="text" />
+                        </td>
+                        <td>
+                            <input type="number" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <input type="submit" id="insert_onderdeel"  value="Voeg onderdeel toe" />
+
+        </fieldset>
+}
+
+
+@helper Admin_table(Db_Stuff.Admin_Db_methods admin_db)
+    {
+
+        <link href="~/Content/css/Table.css" rel="stylesheet" type="text/css" />
+        <table class="blueTable" id="admin_tabel">
+            <thead>
+                <tr>
+
+                    <th>Type onderdeel</th>
+                    <th>naam</th>
+                    <th>Prijs in cent</th>
+                    <th>Nieuwe prijs</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    var i = 0;
+                    foreach (var onderdeel in admin_db.data.type_cake)
+                    {
+                        @table_row(i, admin_db.data.naam_type_cake, onderdeel); i++;
+                    }
+                    foreach (var onderdeel in admin_db.data.bekleding)
+                    {
+                        @table_row(i, admin_db.data.naam_bekleding, onderdeel); i++;
+                    }
+                    foreach (var onderdeel in admin_db.data.vulling)
+                    {
+                        @table_row(i, admin_db.data.naam_vulling, onderdeel); i++;
+                    }
+                    foreach (var onderdeel in admin_db.data.nivea_van_decoratie)
+                    {
+                        @table_row(i, admin_db.data.naam_nivea_van_decoratie, onderdeel); i++;
+                    }
+                }
+            </tbody>
+        </table>
+}
+
+
+
+@helper table_row(int row_id, string type, Db_Stuff.Onderdeel onderdeel)
+    {
+        <tr id="row_@row_id">
+            <td>@type</td>
+            <td>@onderdeel.naam</td>
+            <td>@onderdeel.prijs_in_cent</td>
+            <td style="width: 70px;"><input style="width:100%;" type="number" max="1000000" id="nieuwe_prijs_@row_id" /></td>
+            <td><button style="width:100%" id="update_prijs_@row_id">Update prijs</button></td>
+            <td><button style="width:100%" id="verwijder_@row_id">Verwijder onderdeel</button></td>
+            <td><button style="width:100%" id="beschrijving_@row_id">Verander beschrijving</button></td>
+        </tr>
+}

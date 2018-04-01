@@ -1,0 +1,39 @@
+﻿@if (!IsPost)
+{
+    Page.Title = "Title goes here";
+    //Layout = "Your Layout Page goes here";
+
+
+
+
+
+<hgroup class="title"  style="text-align: center;">
+    <h1>@Page.Title.</h1>
+</hgroup>
+
+<section id="loginForm">
+    <h2 style="text-align: center;" >Use a local account to log in.</h2>
+    <form method="post" style="margin: auto;width: 200px;" >
+
+        <fieldset >
+            <legend>Log in to Your Account</legend>
+            <ol>
+                <li class="email">
+                    <label for="email">Email address</label>
+                    <input type="text" id="email" name="email" value="" />
+                <li class="password">
+                    <label for="password" class="error-label"> Password</label>
+                    <input type="password" id="password" name="password"/>
+                </li>
+                <li class="remember-me">
+                    <input type="checkbox" id="rememberMe" name="rememberMe" value="true"  />
+                    <label class="checkbox" for="rememberMe">Remember me?</label>
+                </li>
+            </ol>
+            <input type="submit" value="Log in" />
+        </fieldset>
+    </form>
+    
+</section>
+
+}
