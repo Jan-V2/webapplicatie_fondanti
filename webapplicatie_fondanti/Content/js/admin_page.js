@@ -7,16 +7,20 @@ function trim_end_spaces(string) {
         if (char === " "){
             spaces++;
         }else{
-            return string.slice(0, - spaces);
+            break
         }
     }
-    return "";
+    if (spaces === 0){
+        return string
+    }else{
+        return string.slice(0, - spaces);
+    }
 }
 
 
 
 table.click((e) => {
-    function get_col_getter(row){return (col_num) => {trim_end_spaces(row.cells[col_num].textContent)}}
+    function get_col_getter(row){return (col_num) => {return trim_end_spaces(row.cells[col_num].textContent)}}
 
     let id = e.originalEvent.target.id;
     let update_prijs_id = "update_prijs_";
@@ -32,15 +36,19 @@ table.click((e) => {
             let row = $("tr#row_"+i)[0];
             let get_col_val = get_col_getter(row);
             let type = get_col_val(0);
+            console.log(row.cells[0].textContent);
             let naam = get_col_val(1);
+
+            let data = {
+                action: "update_prijs",
+                type:type,
+                naam:naam,
+                nieuwe_prijs: nieuwe_prijs
+            };
+            console.log(data);
             if (confirm("Weet je zeker dat je prijs van "+naam+" wilt veranderen naar "+nieuwe_prijs+" cent?")) {
                 $.post("/Admin/main",
-                    {
-                        action: "update_prijs",
-                        type:type,
-                        naam:naam,
-                        nieuwe_prijs: nieuwe_prijs
-                    },
+                    data,
                     function (res, status) {
                         if (res === "ok") {
                             console.log("got ok");
@@ -129,16 +137,18 @@ $("#insert_onderdeel").click(() => {
 });
 
 
+$("#reset_db").click((e) => {
+    if (confirm("Weet u zeker dat u de database wilt resetten?")){
+        $.post("/Admin/main",
+            {
+                action: "reset_db",
+            },
+            function (res, status) {
+                if (res === "ok") {
+                    location.reload(true);
+                }
+                alert(res)
+            });
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
+});

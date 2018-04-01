@@ -13,7 +13,7 @@
         <div>
             @Admin_Page.insert_fieldset()
         </div>
-
+        <button id="reset_db" style="margin:auto;" >Reset database</button>
 
         <script src="~/Content/js/admin_page.js"></script>
     }
@@ -22,7 +22,6 @@
         var act = Request.Form["action"];
         if (act != null)
         {
-            Response.Write("ok");
 
             if (act == "update_prijs")
             {
@@ -69,6 +68,12 @@
                 {
                     Response.Write("niet alle data is correct verstuurd.");
                 }
+            }
+
+            if (act == "reset_db")
+            {
+                admin_db.reset_database();
+                Response.Write("ok");
             }
 
             void send_db_opp_response(int status)

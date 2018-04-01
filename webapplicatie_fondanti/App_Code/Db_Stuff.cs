@@ -185,8 +185,8 @@ public static class Db_Stuff
         {
             string sql = "DROP TABLE Taart_Onderdelen;" +
                          "SELECT*" +
-                         "INTO Taart_Onderdelen" +
-                         "FROM Taart_Onderdelen_reset";
+                         "INTO Taart_Onderdelen " +
+                         "FROM Taart_Onderdelen_reset;";
             db.Execute(sql);
         }
     }
