@@ -8,7 +8,7 @@
     var toevoeging = Request.Form["toevoeging"];
     var postcode = Request.Form["postcode"];
     var plaats = Request.Form["plaats"];
-    var email2 = "mous1700@student.nhl.nl";
+    //var email2 = ""; voer hier het email adres in voor fondanti
     if (IsPost)
     {
         
@@ -16,7 +16,7 @@
         {
             WebMail.Send(
                        to: email,
-                       cc: email2,
+                       //cc: email2,
                        subject: "Prijs indicatie Fondanti",
                        body: "Beste " + voornaam + " " + achternaam + "\r\n" +
                        "Wij hebben gezien dat u een taart heeft samengesteld. De indicatie prijs van uw taart is: " + "\r\n" +
