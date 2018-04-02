@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Security.Cryptography;
 using WebMatrix.Data;
+
 
 public static class Db_Stuff
 {
@@ -125,6 +127,12 @@ public static class Db_Stuff
 
         public abstract int delete_onderdeel(string type, string item_naam);
 
+        public abstract bool validate_login(string email, string password);
+
+        public abstract bool admin_account_exists();
+
+        public abstract void create_admin(string email, string password);
+
         public abstract void reset_database();
 
         public abstract void update_data();
@@ -188,6 +196,67 @@ public static class Db_Stuff
                          "INTO Taart_Onderdelen " +
                          "FROM Taart_Onderdelen_reset;";
             db.Execute(sql);
+        }
+
+        public override bool validate_login(string email, string password)
+        {
+            string savedPasswordHash = db.QueryValue("SELECT Password_with_hash FROM Admin WHERE Id = 1 and LOWER(email) = LOWER(@0)", email) as string;
+            if (savedPasswordHash != null)
+            {
+                byte[] hashBytes = Convert.FromBase64String(savedPasswordHash);
+                byte[] salt = new byte[16];
+                Array.Copy(hashBytes, 0, salt, 0, 16);
+                var pbkdf2 = new Rfc2898DeriveBytes(password, salt, 10000);
+                byte[] hash = pbkdf2.GetBytes(20);
+                for (int i = 0; i < 20; i++)
+                    if (hashBytes[i + 16] != hash[i])
+                        return false;
+                return true;
+            }
+            else
+            {
+                return false;
+            }   
+        }
+
+        public override bool admin_account_exists()
+        {
+            var q = db.Query("SELECT * FROM Admin where id = 1").ToArray();
+            if (q.Length > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public override void create_admin(string email, string password)
+        {
+            if (Utils.validate_email(email))
+            {
+                if (admin_account_exists())
+                {
+                    throw new UnauthorizedAccessException("maar 1 admin account mogelijk");
+                }
+                else
+                {
+                    byte[] salt;
+                    new RNGCryptoServiceProvider().GetBytes(salt = new byte[16]);
+                    var pbkdf2 = new Rfc2898DeriveBytes(password, salt, 10000);
+                    byte[] hash = pbkdf2.GetBytes(20);
+                    byte[] hashBytes = new byte[36];
+                    Array.Copy(salt, 0, hashBytes, 0, 16);
+                    Array.Copy(hash, 0, hashBytes, 16, 20);
+                    string savedPasswordHash = Convert.ToBase64String(hashBytes);
+                    db.Execute("INSERT INTO Admin (Id, Email, Password_with_hash) VALUES (1, @0, @1)", email, savedPasswordHash);
+                }
+            }
+            else
+            {
+                throw new FormatException("emailadress isn't valid");
+            }
         }
     }
 }

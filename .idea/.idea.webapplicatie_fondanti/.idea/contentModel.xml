@@ -19,8 +19,6 @@
           <e p="Utils.cs" t="Include" />
         </e>
         <e p="App_Data" t="Include">
-          <e p="Database - Copy.mdf" t="Include" />
-          <e p="Database - Copy_log.ldf" t="Include" />
           <e p="Database.mdf" t="Include" />
           <e p="Database_log.ldf" t="Include" />
         </e>
@@ -35,6 +33,7 @@
               <e p="jquery.min.js" t="Include" />
               <e p="lodash.min.js" t="Include" />
             </e>
+            <e p="login_page.js" t="Include" />
           </e>
           <e p="Site.css" t="Include" />
           <e p="themes" t="Include">
