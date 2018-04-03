@@ -1,6 +1,10 @@
 ﻿@{
     if (IsPost)
     {
+        Session["taartsoort"] = Request.Form["taartsoort"];
+        Session["bekleding"] = Request.Form["bekleding"];
+        Session["vulling"] = Request.Form["vulling"];
+        Session["decoratieniveau"] = Request.Form["decoratieniveau"];
         Response.Redirect("/Wizard/Allergieen.cshtml");
     }
 }
@@ -15,7 +19,7 @@
 <body>
     <form method="post" class="breed">
         <div class="input-field col s3" id="breed">
-            <select required>
+            <select required name="taartsoort">
                 <option value="" selected disabled>Kies uw taart soort</option>
                 <option value="1">Chocolate (2 euro pp)</option>
                 <option value="2">Red velvet (3 euro pp)</option>
@@ -23,14 +27,14 @@
             </select>
         </div>
         <div class="input-field col s3" id="breed">
-            <select required>
+            <select required name="bekleding">
                 <option value="" selected disabled>kies uw bekleding</option>
                 <option value="1">Fondant (1 euro pp)</option>
                 <option value="2">Marsepein (3 euro pp)</option>
             </select>
         </div>
         <div class="input-field col s3" id="breed">
-            <select required>
+            <select required name="vulling">
                 <option value="" selected disabled>Kies uw taart vulling (1 per laag)</option>
                 <option value="1">Champagneroom met verse frambozen (3 euro pp)</option>
                 <option value="2">Gele room met Oreo vulling (2 euro pp)</option>
@@ -38,7 +42,7 @@
             </select>
         </div>
         <div class="input-field col s3" id="breed">
-            <select required>
+            <select required name="decoratieniveau">
                 <option value="" selected disabled>Niveau van decoratie:</option>
                 <option value="1">Eenvoudig (1 euro pp)</option>
                 <option value="2">Gemiddeld (2 euro pp)</option>

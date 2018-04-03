@@ -2,11 +2,19 @@
 
 @{
     var datum = DateTime.Today;
-    int persoon = Convert.ToInt16(Request.Form["personen"]);
+    int persoon = Convert.ToInt16(Session["personen"]);
+    string taartsoort = Convert.ToString(Session["taartsoort"]);
+    string bekleding = Convert.ToString(Session["bekleding"]);
+    string vulling = Convert.ToString(Session["vulling"]);
+    string decoratieniveau = Convert.ToString(Session["decoratieniveau"]);
 
+
+    
+
+        
     if (IsPost)
     {
-        Response.Redirect("Default.cshtml");
+        Response.Redirect("gegevens.cshtml");
     }
 
     var db = new Db_Stuff.Mssql_Taarten_Data();

@@ -1,6 +1,7 @@
 ﻿@{
     if (IsPost)
     {
+        Session["Thema"] = Request.Form["Thema"];
         Response.Redirect("/Wizard/Bekleding.cshtml");
     }
 }
@@ -15,16 +16,16 @@
 <body>
     <form method="post" class="breed">
         <script type="text/javascript">
-    function showfield(name) {
-        if (name == 'Other') document.getElementById('anders').innerHTML = 'Anders namelijk: <input type="text" name="other" />';
-        else document.getElementById('anders').innerHTML = '';
-    }
-</script>
+            function showfield(name) {
+                if (name == 'Other') document.getElementById('anders').innerHTML = 'Anders namelijk: <input type="text" name="other" />';
+                else document.getElementById('anders').innerHTML = '';
+            }
+        </script>
         <div class="col s3 row">
             Thema:
-            
 
-            <select name="travel_arriveVia" id="travel_arriveVia" onchange="showfield(this.options[this.selectedIndex].value)">
+
+            <select name="Thema" id="travel_arriveVia" onchange="showfield(this.options[this.selectedIndex].value)">
                 <option selected="selected">Verjaardag volwassene</option>
                 <option value="Plane">Verjaardag kind</option>
                 <option value="train">Bruiloft</option>
@@ -32,17 +33,18 @@
             </select>
             <div id="anders"></div>
             <div class="file-field input-field">
-            <div class="btn">
-                <span>File</span>
-                <input type="file" multiple>
+                @* File upload moet nog in een session *@
+                <div class="btn">
+                    <span>File</span>
+                    <input type="file" multiple>
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" placeholder="(Optioneel) Upload een foto ter inspiratie">
+                </div>
             </div>
-            <div class="file-path-wrapper">
-                <input class="file-path validate" type="text" placeholder="(Optioneel) Upload een foto ter inspiratie">
-            </div>
-        </div>
             <input type="submit" name="submit" value="Volgende" />
         </div>
-        
+
     </form>
 </body>
 </html>

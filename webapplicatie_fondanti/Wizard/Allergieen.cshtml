@@ -1,6 +1,7 @@
 ﻿@{
     if (IsPost)
     {
+        Session["allergie"] = Request.Form["allergie"];
         Response.Redirect("/Default.cshtml");
     }
 }
@@ -23,7 +24,7 @@
                 }
             </script>
 
-            <select name="travel_arriveVia" id="travel_arriveVia" onchange="showfield(this.options[this.selectedIndex].value)">
+            <select name="allergie" id="travel_arriveVia" onchange="showfield(this.options[this.selectedIndex].value)">
                 <option selected="selected">Geen</option>
                 <option value="Plane">Glutenvrij</option>
                 <option value="Other">Anders, namelijk</option>
