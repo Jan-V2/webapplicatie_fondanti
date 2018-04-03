@@ -2,7 +2,9 @@
     if (IsPost)
     {
         Session["allergie"] = Request.Form["allergie"];
-        Response.Redirect("/Default.cshtml");
+        //Response.Redirect("/Eindoverzicht.cshtml");
+        Response.Redirect("/gegevens.cshtml");
+
     }
 }
 <html xmlns="http://www.w3.org/1999/xhtml">
