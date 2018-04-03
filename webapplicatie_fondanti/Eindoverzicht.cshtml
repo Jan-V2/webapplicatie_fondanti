@@ -7,11 +7,17 @@
     string bekleding = Convert.ToString(Session["bekleding"]);
     string vulling = Convert.ToString(Session["vulling"]);
     string decoratieniveau = Convert.ToString(Session["decoratieniveau"]);
+    string Thema = Convert.ToString(Session["Thema"]);
+    string lagen = Convert.ToString(Session["lagen"]);
+    string allergie = Convert.ToString(Session["allergie"]);
 
 
-    
 
-        
+
+
+
+
+
     if (IsPost)
     {
         Response.Redirect("gegevens.cshtml");
@@ -49,13 +55,8 @@
                 </div>
             </div>
 
-            <div class="col s3 row">
-                Wanneer wilt u de taart hebben:
-                <div class="input-field inline">
-                    <input id="Date_inline" type="date" class="validate" required />
-                </div>
-            </div>
-            <input type="submit" name="name" value="Prijs berekenen" />
+            
+            <input type="submit" name="name" value="Volgende" />
         </form>
     </div>
     <br />

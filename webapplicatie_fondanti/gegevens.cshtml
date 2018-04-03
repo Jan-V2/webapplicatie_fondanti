@@ -1,4 +1,13 @@
 ﻿@{
+    int persoon = Convert.ToInt16(Session["personen"]);
+    string taartsoort = Convert.ToString(Session["taartsoort"]);
+    string bekleding = Convert.ToString(Session["bekleding"]);
+    string vulling = Convert.ToString(Session["vulling"]);
+    string decoratieniveau = Convert.ToString(Session["decoratieniveau"]);
+    string Thema = Convert.ToString(Session["Thema"]);
+    string lagen = Convert.ToString(Session["lagen"]);
+    string allergie = Convert.ToString(Session["allergie"]);
+
     var voornaam = Request.Form["voornaam"];
     var achternaam = Request.Form["achternaam"];
     var email = Request.Form["email"];
@@ -13,37 +22,37 @@
 
     if (IsPost)
     {
-        for (int i = 0; i < 1; i++)
-        {
-            WebMail.Send(
-                   to: email,
-                   subject: "Prijs indicatie Fondanti",
-                   body: "Beste " + voornaam + " " + achternaam + "\n" +
-                   "Wij hebben gezien dat u een taart heeft samengesteld. De indicatie prijs van uw taart is: " + "\n" +
-                   "De samenstelling van uw taart is: " + "\n" +
-                   "Uw overig ingevulde gegevens zijn: " + "\n" +
-                   telefoonnummer + "\n" +
-                   straat + " " + huisnummer + toevoeging + "\n" +
-                   postcode + " " + plaats + "\n" + "De bezorgdatum is: " + datum
-                   );
-
-            WebMail.Send(
-                          to: email2,
-                          subject: "Samenstelling van klant",
-                          body: "Beste medewerker, " + "\r\n" +
-                          "Er heeft een klant een taart samengesteld: " + "\r\n" +
-                          "De samenstelling van de taart is: " + "\r\n" +
-                          "De overige ingevulde gegevens zijn: " + "\r\n" +
-                          telefoonnummer + "\r\n" +
-                          straat + " " + huisnummer + toevoeging + "\r\n" +
-                          postcode + " " + plaats + "\n" + "De gewenste bezorgdatum is: " + datum
-                          );
 
 
+        WebMail.Send(
+               to: email,
+               subject: "Prijs indicatie Fondanti",
+               body: "Beste " + voornaam + " " + achternaam + "\n" +
+               "Wij hebben gezien dat u een taart heeft samengesteld. De indicatie prijs van uw taart is: " + "\n" +
+               "De samenstelling van uw taart is: " + "\n" +
+               "Uw overig ingevulde gegevens zijn: " + "\n" +
+               telefoonnummer + "\n" +
+               straat + " " + huisnummer + toevoeging + "\n" +
+               postcode + " " + plaats + "\n" + "De bezorgdatum is: " + datum
+               );
+
+        WebMail.Send(
+               to: email2,
+               subject: "Samenstelling van klant",
+               body: "Beste medewerker, " + "\r\n" +
+               "Er heeft een klant een taart samengesteld: " + "\r\n" +
+               "De samenstelling van de taart is: " + "\r\n" +
+               "De overige ingevulde gegevens zijn: " + "\r\n" +
+               telefoonnummer + "\r\n" +
+               straat + " " + huisnummer + toevoeging + "\r\n" +
+               postcode + " " + plaats + "\n" + "De gewenste bezorgdatum is: " + datum
+               );
 
 
 
-        }
+
+
+
 
 
 
