@@ -1,6 +1,7 @@
 ﻿@{
     if (IsPost)
     {
+        Session["personen"] = Request.Form["personen"];
         Response.Redirect("/Wizard/Aantallagen.cshtml");
     }
 }
