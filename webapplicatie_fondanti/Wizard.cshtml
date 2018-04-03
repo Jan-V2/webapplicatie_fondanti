@@ -1,6 +1,11 @@
 ﻿@{
     var datum = DateTime.Today;
     int persoon = Convert.ToInt16(Request.Form["personen"]);
+
+    if (IsPost)
+    {
+        Response.Redirect("Default.cshtml");
+    }
 }
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -17,7 +22,7 @@
 </head>
 <body>
     <div class="formulier">
-        <form action="/" method="post" class="breed">
+        <form method="post" class="breed">
 
             <div class="col s3 row">
                 Aantal personen:
@@ -77,7 +82,7 @@
                     <option value="3">Uitgebreid (3 euro pp)</option>
                 </select>
             </div>
-            <form action="#">
+            
                 <div class="file-field input-field">
                     <div class="btn">
                         <span>File</span>
@@ -87,12 +92,12 @@
                         <input class="file-path validate" type="text" placeholder="(Optioneel) Upload een foto ter inspiratie">
                     </div>
                 </div>
-            </form>
+            
 
             <div class="col s3 row">
                 Wanneer wilt u de taart hebben:
                 <div class="input-field inline">
-                    <input id="Date_inline" type="date" class="validate" min="@DateTime.Today" required />
+                    <input id="Date_inline" type="date" class="validate" min="3-4-2018" required />
                 </div>
             </div>
             <input type="submit" name="name" value="Prijs berekenen" />
