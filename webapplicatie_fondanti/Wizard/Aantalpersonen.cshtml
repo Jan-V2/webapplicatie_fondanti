@@ -1,13 +1,8 @@
 ﻿@{
-    @Convert.ToInt32(@Session["personen"]);
-
-
-
     if (IsPost)
     {
-        Response.Redirect("/Wizard/Thema.cshtml");
+        Response.Redirect("/Wizard/Aantallagen.cshtml");
     }
-    var db = new Db_Stuff.Mssql_Taarten_Data();
 }
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -20,13 +15,12 @@
 <body>
     <form method="post" class="breed">
         <div class="col s3 row">
-            Aantal lagen: (minimaal 15 personen per laag.)
+            Aantal personen:
             <div class="input-field inline">
-                <input id="personen_inline" type="number" name="lagen" class="validate" min="1" required />
+                <input id="personen_inline" type="number" class="validate" name="personen" min="1" required>
             </div>
             <input type="submit" name="submit" value="Volgende" />
         </div>
     </form>
-    @helpers.wizard.type_cake_select(db)
 </body>
 </html>
