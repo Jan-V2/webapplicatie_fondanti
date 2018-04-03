@@ -1,10 +1,13 @@
 ﻿@{
     var logged_in = Convert.ToBoolean(Session["logged_in"]);
     var last_active = Convert.ToDateTime(Session["last_active"]);
+
+    
     if (logged_in == true)
     {
         if (DateTime.Compare(DateTime.Now.AddMinutes(-30), last_active) < 0)
         {
+
             Db_Stuff.Admin_Db_methods admin_db = new Db_Stuff.Mssql_Admin_Db_methods();
             if (!IsPost)
             {
