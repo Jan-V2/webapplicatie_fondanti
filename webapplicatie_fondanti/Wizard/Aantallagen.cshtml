@@ -1,3 +1,26 @@
 ﻿@{
-    
+    if (IsPost)
+    {
+        Response.Redirect("/Wizard/Thema.cshtml");
+    }
 }
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/StyleSheetwizard.css">
+    <title></title>
+</head>
+<body>
+    <form method="post" class="breed">
+        <div class="col s3 row">
+            Aantal lagen: (minimaal 15 personen per laag.)
+            <div class="input-field inline">
+                <input id="personen_inline" type="number" name="lagen" class="validate" min="1" required />
+            </div>
+            <input type="submit" name="submit" value="Volgende" />
+        </div>
+    </form>
+</body>
+</html>
