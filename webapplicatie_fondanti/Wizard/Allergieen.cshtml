@@ -1,6 +1,7 @@
 ﻿@{
     if (IsPost)
     {
+        Session["allergie"] = Request.Form["allergie"];
         Response.Redirect("/Default.cshtml");
     }
 }
@@ -13,7 +14,9 @@
         @helpers.wizard.allergieen()
 
 
+
         <input type="submit" name="submit" value="Volgende" />
+
     </form>
 </body>
 </html>

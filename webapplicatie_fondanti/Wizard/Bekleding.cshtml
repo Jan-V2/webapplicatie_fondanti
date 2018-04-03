@@ -1,6 +1,10 @@
 ﻿@{
     if (IsPost)
     {
+        Session["taartsoort"] = Request.Form["taartsoort"];
+        Session["bekleding"] = Request.Form["bekleding"];
+        Session["vulling"] = Request.Form["vulling"];
+        Session["decoratieniveau"] = Request.Form["decoratieniveau"];
         Response.Redirect("/Wizard/Allergieen.cshtml");
     }
     var db = new Db_Stuff.Mssql_Taarten_Data();
@@ -15,6 +19,7 @@
         @helpers.wizard.bekleding_select(db)
         @helpers.wizard.vulling_select(db)
         @helpers.wizard.niv_decoratie_select(db)
+
         <input type="submit" name="submit" value="Volgende" />
     </form>
 </body>
