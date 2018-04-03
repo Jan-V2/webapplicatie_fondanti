@@ -1,0 +1,86 @@
+﻿@{
+    var logged_in = Convert.ToBoolean(Session["logged_in"]);
+    var last_active = Convert.ToDateTime(Session["last_active"]);
+
+    
+    if (logged_in == true)
+    {
+        if (DateTime.Compare(DateTime.Now.AddMinutes(-30), last_active) < 0)
+        {
+
+            Db_Stuff.Admin_Db_methods admin_db = new Db_Stuff.Mssql_Admin_Db_methods();
+            if (!IsPost)
+            {
+                <script src="~/Content/js/lib/jquery.min.js"></script>
+                <script src="~/Content/js/lib/lodash.min.js"></script>
+                Page.Title = "Title goes here";
+
+                <div>
+                    @Admin_Page.Admin_table(admin_db)
+                </div>
+                <div>
+                    @Admin_Page.insert_fieldset()
+                </div>
+                <button id="reset_db" style="margin:auto;">Reset database</button>
+                <script src="~/Content/js/admin_page.js"></script>
+            }
+            else
+            {
+                var act = Request.Form["action"];
+                if (act != null)
+                {
+                    string type = Request.Form["type"];
+                    string naam = Request.Form["naam"];
+
+                    if (act == "update_prijs")
+                    {
+                        int nieuwe_prijs = Request.Form["nieuwe_prijs"].AsInt();
+
+                        if (type != null && naam != null && nieuwe_prijs != 0)
+                        { send_db_opp_response(admin_db.update_prijs_onderdeel(type, naam, nieuwe_prijs)); }
+                        else
+                        { Response.Write("niet alle data is correct verstuurd."); }
+                    }
+                    if (act == "delete_item")
+                    {
+                        if (type != null && naam != null)
+                        { send_db_opp_response(admin_db.delete_onderdeel(type, naam)); }
+                        else
+                        { Response.Write("niet alle data is correct verstuurd."); }
+                    }
+                    if (act == "insert_item")
+                    {
+                        int prijs = Request.Form["prijs"].AsInt();
+
+                        if (type != null && naam != null)
+                        { send_db_opp_response(admin_db.insert_onderdeel(type, new Db_Stuff.Onderdeel(naam, prijs))); }
+                        else
+                        { Response.Write("niet alle data is correct verstuurd."); }
+                    }
+                    if (act == "reset_db")
+                    {
+                        admin_db.reset_database();
+                        Response.Write("ok");
+                    }
+                    void send_db_opp_response(int status)
+                    {
+                        if (status == 1)
+                        { Response.Write("ok"); }
+                        else if (status == 0)
+                        { Response.Write("de database was niet veranderd."); }
+                        else
+                        { Response.Write("de database was incorrect aangepast."); }
+                    }
+                }
+            }
+        }
+        else
+        {
+            <h1>http error 403 Unauthorized access</h1>
+        }
+    }
+    else
+    {
+        <h1>http error 403 Unauthorized access</h1>
+    }
+}
