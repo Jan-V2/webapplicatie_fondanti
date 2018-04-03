@@ -16,10 +16,10 @@
                 Page.Title = "Title goes here";
 
                 <div>
-                    @Admin_Page.Admin_table(admin_db)
+                    @helpers.Admin_Page.Admin_table(admin_db)
                 </div>
                 <div>
-                    @Admin_Page.insert_fieldset()
+                    @helpers.Admin_Page.insert_fieldset()
                 </div>
                 <button id="reset_db" style="margin:auto;">Reset database</button>
                 <script src="~/Content/js/admin_page.js"></script>

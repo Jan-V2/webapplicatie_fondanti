@@ -1,4 +1,6 @@
-﻿@{
+﻿
+
+@{
     var datum = DateTime.Today;
     int persoon = Convert.ToInt16(Request.Form["personen"]);
 
@@ -6,7 +8,13 @@
     {
         Response.Redirect("Default.cshtml");
     }
+
+    var db = new Db_Stuff.Mssql_Taarten_Data();
 }
+
+
+
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
@@ -36,6 +44,7 @@
                 <div class="input-field inline">
                     <input id="personen_inline" type="number" name="lagen" class="validate" min="1" required />
                 </div>
+<<<<<<< HEAD
             </div>*@
             <div class="input-field col s3" id="breed">
                 <select required>
@@ -52,6 +61,14 @@
                     <option value="2">Marsepein (3 euro pp)</option>
                 </select>
             </div>
+=======
+            </div>
+
+            @helpers.wizard.type_cake_select(db)
+            @helpers.wizard.bekleding_select(db)
+            @helpers.wizard.vulling_select(db)
+
+>>>>>>> 1fc6ce8d1dd5d90f0ae86e2b6a78f4dde74fa7f6
             <div class="input-field col s3" id="breed">
                 <select required>
                     <option value="" selected disabled>Kies uw taart vulling (1 per laag)</option>
@@ -74,30 +91,23 @@
                 <option value="Other">Anders, namelijk</option>
             </select>
             <div id="div1"></div>
-            <div class="input-field col s3" id="breed">
-                <select required>
-                    <option value="" selected disabled>Niveau van decoratie:</option>
-                    <option value="1">Eenvoudig (1 euro pp)</option>
-                    <option value="2">Gemiddeld (2 euro pp)</option>
-                    <option value="3">Uitgebreid (3 euro pp)</option>
-                </select>
-            </div>
-            
-                <div class="file-field input-field">
-                    <div class="btn">
-                        <span>File</span>
-                        <input type="file" multiple>
-                    </div>
-                    <div class="file-path-wrapper">
-                        <input class="file-path validate" type="text" placeholder="(Optioneel) Upload een foto ter inspiratie">
-                    </div>
+            @helpers.wizard.niv_decoratie_select(db)
+
+            <div class="file-field input-field">
+                <div class="btn">
+                    <span>File</span>
+                    <input type="file" multiple>
                 </div>
-            
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" placeholder="(Optioneel) Upload een foto ter inspiratie">
+                </div>
+            </div>
+
 
             <div class="col s3 row">
                 Wanneer wilt u de taart hebben:
                 <div class="input-field inline">
-                    <input id="Date_inline" type="date" class="validate" min="3-4-2018" required />
+                    <input id="Date_inline" type="date" class="validate" required />
                 </div>
             </div>
             <input type="submit" name="name" value="Prijs berekenen" />
@@ -106,7 +116,6 @@
     <br />
 </body>
 </html>
-
 
 
 
