@@ -1,3 +1,22 @@
 ﻿@{
-    
+    if (IsPost)
+    {
+        Response.Redirect("/Wizard/Aantallagen.cshtml");
+    }
 }
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <form method="post">
+        <div class="col s3 row">
+            Aantal personen:
+            <div class="input-field inline">
+                <input id="personen_inline" type="number" class="validate" name="personen" min="1" required>
+            </div>
+            <input type="submit" name="submit" value="Volgende" />
+        </div>
+    </form>
+</body>
+</html>
