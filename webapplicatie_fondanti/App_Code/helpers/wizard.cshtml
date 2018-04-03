@@ -1,0 +1,40 @@
+﻿@using System.Collections.Generic;
+@using System.Collections.ObjectModel;
+
+@helper select_uit_db(string naam, ReadOnlyCollection<Db_Stuff.Onderdeel> lijst)
+    {
+        <div class="input-field col s3" id="breed">
+            <select required>
+                <option value="" selected disabled>Kies uw @naam</option>
+                @{
+                    for (int i = 0; i < lijst.Count; i++)
+                    {
+                        var odeel = lijst[i];
+                        var prijs = (float)odeel.prijs_in_cent / 100f;
+                        <option value="@i">@odeel.naam (@prijs euro pp)</option>
+                    }
+
+                }
+            </select>
+        </div>
+}
+
+@helper bekleding_select(Db_Stuff.Taarten_Data db)
+    {
+        @select_uit_db(db.naam_bekleding, db.bekleding)
+
+}
+@helper niv_decoratie_select(Db_Stuff.Taarten_Data db)
+    {
+        @select_uit_db(db.naam_nivea_van_decoratie, db.nivea_van_decoratie)
+}
+@helper type_cake_select(Db_Stuff.Taarten_Data db)
+    {
+        @select_uit_db(db.naam_type_cake, db.type_cake)
+
+}
+@helper vulling_select(Db_Stuff.Taarten_Data db)
+    {
+        @select_uit_db(db.naam_vulling, db.vulling)
+
+}
