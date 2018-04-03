@@ -32,7 +32,7 @@
     <div class="formulier">
         <form method="post" class="breed">
 
-            @*<div class="col s3 row">
+            <div class="col s3 row">
                 Aantal personen:
                 <div class="input-field inline">
                     <input id="personen_inline" type="number" class="validate" name="personen" min="1" required>
@@ -44,31 +44,16 @@
                 <div class="input-field inline">
                     <input id="personen_inline" type="number" name="lagen" class="validate" min="1" required />
                 </div>
-<<<<<<< HEAD
-            </div>*@
-            <div class="input-field col s3" id="breed">
-                <select required>
-                    <option value="" selected disabled>Kies uw taart soort</option>
-                    <option value="1">Chocolate (2 euro pp)</option>
-                    <option value="2">Red velvet (3 euro pp)</option>
-                    <option value="3">Biscuitdeeg (1 euro pp)</option>
-                </select>
-            </div>
-            <div class="input-field col s3" id="breed">
-                <select required>
-                    <option value="" selected disabled>kies uw bekleding</option>
-                    <option value="1">Fondant (1 euro pp)</option>
-                    <option value="2">Marsepein (3 euro pp)</option>
-                </select>
-            </div>
-=======
+
+            
+
             </div>
 
             @helpers.wizard.type_cake_select(db)
             @helpers.wizard.bekleding_select(db)
             @helpers.wizard.vulling_select(db)
 
->>>>>>> 1fc6ce8d1dd5d90f0ae86e2b6a78f4dde74fa7f6
+
             <div class="input-field col s3" id="breed">
                 <select required>
                     <option value="" selected disabled>Kies uw taart vulling (1 per laag)</option>

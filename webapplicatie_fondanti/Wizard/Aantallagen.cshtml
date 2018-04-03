@@ -3,6 +3,7 @@
     {
         Response.Redirect("/Wizard/Thema.cshtml");
     }
+    var db = new Db_Stuff.Mssql_Taarten_Data();
 }
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -22,5 +23,6 @@
             <input type="submit" name="submit" value="Volgende" />
         </div>
     </form>
+    @helpers.wizard.type_cake_select(db)
 </body>
 </html>
