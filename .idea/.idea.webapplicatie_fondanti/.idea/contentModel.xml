@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\John\.Rider2017.3\system\resharper-host\local\Transient\ReSharperHost\v11\SolutionCaches\_webapplicatie_fondanti.1070056306.00" t="ExcludeRecursive" />
+    <e p="H:\projects\visual studio\webapplicatie_fondanti" t="IncludeFlat">
+      <e p="webapplicatie_fondanti" t="IncludeRecursive">
+        <e p=".gitattributes" t="Include" />
+        <e p="_AppStart.cshtml" t="Include" />
+        <e p="_SiteLayout.cshtml" t="Include" />
+        <e p="About.cshtml" t="Include" />
+        <e p="Admin" t="Include">
+          <e p="login.cshtml" t="Include" />
+          <e p="main.cshtml" t="Include" />
+        </e>
+        <e p="App_Code" t="Include">
+          <e p="Admin_Page.cshtml" t="Include" />
+          <e p="Db_Stuff.cs" t="Include" />
+          <e p="GlobalSuppressions.cs" t="Include" />
+          <e p="Utils.cs" t="Include" />
+        </e>
+        <e p="App_Data" t="Include">
+          <e p="Database.mdf" t="Include" />
+          <e p="Database_log.ldf" t="Include" />
+        </e>
+        <e p="Contact.cshtml" t="Include" />
+        <e p="Content" t="Include">
+          <e p="css" t="Include">
+            <e p="Table.css" t="Include" />
+          </e>
+          <e p="js" t="Include">
+            <e p="admin_page.js" t="Include" />
+            <e p="lib" t="Include">
+              <e p="jquery.min.js" t="Include" />
+              <e p="lodash.min.js" t="Include" />
+            </e>
+            <e p="login_page.js" t="Include" />
+          </e>
+          <e p="Site.css" t="Include" />
+          <e p="themes" t="Include">
+            <e p="base" t="Include">
+              <e p="images" t="Include">
+                <e p="animated-overlay.gif" t="Include" />
+                <e p="ui-bg_flat_0_aaaaaa_40x100.png" t="Include" />
+                <e p="ui-bg_flat_75_ffffff_40x100.png" t="Include" />
+                <e p="ui-bg_glass_55_fbf9ee_1x400.png" t="Include" />
+                <e p="ui-bg_glass_65_ffffff_1x400.png" t="Include" />
+                <e p="ui-bg_glass_75_dadada_1x400.png" t="Include" />
+                <e p="ui-bg_glass_75_e6e6e6_1x400.png" t="Include" />
+                <e p="ui-bg_glass_95_fef1ec_1x400.png" t="Include" />
+                <e p="ui-bg_highlight-soft_75_cccccc_1x100.png" t="Include" />
+                <e p="ui-icons_222222_256x240.png" t="Include" />
+                <e p="ui-icons_2e83ff_256x240.png" t="Include" />
+                <e p="ui-icons_454545_256x240.png" t="Include" />
+                <e p="ui-icons_888888_256x240.png" t="Include" />
+                <e p="ui-icons_cd0a0a_256x240.png" t="Include" />
+              </e>
+              <e p="jquery-ui.css" t="Include" />
+              <e p="jquery.ui.accordion.css" t="Include" />
+              <e p="jquery.ui.all.css" t="Include" />
+              <e p="jquery.ui.autocomplete.css" t="Include" />
+              <e p="jquery.ui.base.css" t="Include" />
+              <e p="jquery.ui.button.css" t="Include" />
+              <e p="jquery.ui.core.css" t="Include" />
+              <e p="jquery.ui.datepicker.css" t="Include" />
+              <e p="jquery.ui.dialog.css" t="Include" />
+              <e p="jquery.ui.menu.css" t="Include" />
+              <e p="jquery.ui.progressbar.css" t="Include" />
+              <e p="jquery.ui.resizable.css" t="Include" />
+              <e p="jquery.ui.selectable.css" t="Include" />
+              <e p="jquery.ui.slider.css" t="Include" />
+              <e p="jquery.ui.spinner.css" t="Include" />
+              <e p="jquery.ui.tabs.css" t="Include" />
+              <e p="jquery.ui.theme.css" t="Include" />
+              <e p="jquery.ui.tooltip.css" t="Include" />
+              <e p="minified" t="Include">
+                <e p="images" t="Include">
+                  <e p="animated-overlay.gif" t="Include" />
+                  <e p="ui-bg_flat_0_aaaaaa_40x100.png" t="Include" />
+                  <e p="ui-bg_flat_75_ffffff_40x100.png" t="Include" />
+                  <e p="ui-bg_glass_55_fbf9ee_1x400.png" t="Include" />
+                  <e p="ui-bg_glass_65_ffffff_1x400.png" t="Include" />
+                  <e p="ui-bg_glass_75_dadada_1x400.png" t="Include" />
+                  <e p="ui-bg_glass_75_e6e6e6_1x400.png" t="Include" />
+                  <e p="ui-bg_glass_95_fef1ec_1x400.png" t="Include" />
+                  <e p="ui-bg_highlight-soft_75_cccccc_1x100.png" t="Include" />
+                  <e p="ui-icons_222222_256x240.png" t="Include" />
+                  <e p="ui-icons_2e83ff_256x240.png" t="Include" />
+                  <e p="ui-icons_454545_256x240.png" t="Include" />
+                  <e p="ui-icons_888888_256x240.png" t="Include" />
+                  <e p="ui-icons_cd0a0a_256x240.png" t="Include" />
+                </e>
+                <e p="jquery-ui.min.css" t="Include" />
+                <e p="jquery.ui.accordion.min.css" t="Include" />
+                <e p="jquery.ui.autocomplete.min.css" t="Include" />
+                <e p="jquery.ui.button.min.css" t="Include" />
+                <e p="jquery.ui.core.min.css" t="Include" />
+                <e p="jquery.ui.datepicker.min.css" t="Include" />
+                <e p="jquery.ui.dialog.min.css" t="Include" />
+                <e p="jquery.ui.menu.min.css" t="Include" />
+                <e p="jquery.ui.progressbar.min.css" t="Include" />
+                <e p="jquery.ui.resizable.min.css" t="Include" />
+                <e p="jquery.ui.selectable.min.css" t="Include" />
+                <e p="jquery.ui.slider.min.css" t="Include" />
+                <e p="jquery.ui.spinner.min.css" t="Include" />
+                <e p="jquery.ui.tabs.min.css" t="Include" />
+                <e p="jquery.ui.theme.min.css" t="Include" />
+                <e p="jquery.ui.tooltip.min.css" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
+        <e p="database_test.cshtml" t="Include" />
+        <e p="Default.cshtml" t="Include" />
+        <e p="favicon.ico" t="Include" />
+        <e p="images" t="Include">
+          <e p="accent.png" t="Include" />
+          <e p="bullet.png" t="Include" />
+          <e p="heroAccent.png" t="Include" />
+          <e p="orderedList0.png" t="Include" />
+          <e p="orderedList1.png" t="Include" />
+          <e p="orderedList2.png" t="Include" />
+          <e p="orderedList3.png" t="Include" />
+          <e p="orderedList4.png" t="Include" />
+          <e p="orderedList5.png" t="Include" />
+          <e p="orderedList6.png" t="Include" />
+          <e p="orderedList7.png" t="Include" />
+          <e p="orderedList8.png" t="Include" />
+          <e p="orderedList9.png" t="Include" />
+        </e>
+        <e p="logins systeem.todo" t="Include" />
+        <e p="packages.config" t="Include" />
+        <e p="post" t="Include">
+          <e p="Admin_Page.cshtml" t="Include" />
+        </e>
+        <e p="StyleSheetwizard.css" t="Include" />
+        <e p="Web.config" t="Include" />
+        <e p="Web.Debug.config" t="Include" />
+        <e p="Wizard.cshtml" t="Include" />
+      </e>
+      <e p="webapplicatie_fondanti.sln" t="IncludeFlat" />
+    </e>
+  </component>
+</project>
