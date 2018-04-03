@@ -6,32 +6,12 @@
 }
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    @*<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">*@
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="~/StyleSheetwizard.css">
-    <title></title>
+    @helpers.wizard.materialized_header()
 </head>
 <body>
     <form method="post" class="breed">
-        <script type="text/javascript">
-    function showfield(name) {
-        if (name == 'Other') document.getElementById('anders').innerHTML = 'Anders namelijk: <input type="text" name="other" />';
-        else document.getElementById('anders').innerHTML = '';
-    }
-</script>
-        <div class="col s3 row">
-            Thema:
-            
-
-            <select name="travel_arriveVia" id="travel_arriveVia" onchange="showfield(this.options[this.selectedIndex].value)">
-                <option selected="selected">Verjaardag volwassene</option>
-                <option value="Plane">Verjaardag kind</option>
-                <option value="train">Bruiloft</option>
-                <option value="Other">Anders, namelijk</option>
-            </select>
-            <div id="anders"></div>
-            <div class="file-field input-field">
+        @helpers.wizard.thema_selector()
+        <div class="file-field input-field">
             <div class="btn">
                 <span>File</span>
                 <input type="file" multiple>
@@ -40,9 +20,8 @@
                 <input class="file-path validate" type="text" placeholder="(Optioneel) Upload een foto ter inspiratie">
             </div>
         </div>
-            <input type="submit" name="submit" value="Volgende" />
-        </div>
-        
+        <input type="submit" name="submit" value="Volgende" />
+
     </form>
 </body>
 </html>

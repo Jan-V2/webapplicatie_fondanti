@@ -17,65 +17,18 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="~/StyleSheetwizard.css">
-    <title></title>
-    <script>
-        $(document).ready(function () {
-            $('select').formSelect();
-        });
-    </script>
+    @helpers.wizard.materialized_header()
 </head>
 <body>
     <div class="formulier">
         <form method="post" class="breed">
 
-            <div class="col s3 row">
-                Aantal personen:
-                <div class="input-field inline">
-                    <input id="personen_inline" type="number" class="validate" name="personen" min="1" required>
-                </div>
-            </div>
-
-            <div class="col s3 row">
-                Aantal lagen: (minimaal 15 personen per laag.)
-                <div class="input-field inline">
-                    <input id="personen_inline" type="number" name="lagen" class="validate" min="1" required />
-                </div>
-
-            
-
-            </div>
-
+            @helpers.wizard.allergieen()
+            @helpers.wizard.aantal_personen()
+            @helpers.wizard.aantal_lagen()
             @helpers.wizard.type_cake_select(db)
             @helpers.wizard.bekleding_select(db)
             @helpers.wizard.vulling_select(db)
-
-
-            <div class="input-field col s3" id="breed">
-                <select required>
-                    <option value="" selected disabled>Kies uw taart vulling (1 per laag)</option>
-                    <option value="1">Champagneroom met verse frambozen (3 euro pp)</option>
-                    <option value="2">Gele room met Oreo vulling (2 euro pp)</option>
-                    <option value="3">Kindervulling (vruchten compote en room) (1 euro pp)</option>
-                </select>
-            </div>
-            <script type="text/javascript">
-                function showfield(name) {
-                    if (name == 'Other') document.getElementById('div1').innerHTML = 'Other: <input type="text" name="other" />';
-                    else document.getElementById('div1').innerHTML = '';
-                }
-            </script>
-
-            <select name="travel_arriveVia" id="travel_arriveVia" onchange="showfield(this.options[this.selectedIndex].value)">
-                <option selected="selected">Allergieën ...</option>
-                <option value="Plane">Glutenvrij</option>
-                <option value="Train">geen</option>
-                <option value="Other">Anders, namelijk</option>
-            </select>
-            <div id="div1"></div>
             @helpers.wizard.niv_decoratie_select(db)
 
             <div class="file-field input-field">
@@ -84,10 +37,9 @@
                     <input type="file" multiple>
                 </div>
                 <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text" placeholder="(Optioneel) Upload een foto ter inspiratie">
+                    <input class="file-path validate" type="text" placeholder="(Optioneel) Upload een foto voor inspiratie">
                 </div>
             </div>
-
 
             <div class="col s3 row">
                 Wanneer wilt u de taart hebben:

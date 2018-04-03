@@ -3,48 +3,18 @@
     {
         Response.Redirect("/Wizard/Allergieen.cshtml");
     }
+    var db = new Db_Stuff.Mssql_Taarten_Data();
 }
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="~/StyleSheetwizard.css">
-    <title></title>
+    @helpers.wizard.materialized_header()
 </head>
 <body>
     <form method="post" class="breed">
-        <div class="input-field col s3" id="breed">
-            <select required>
-                <option value="" selected disabled>Kies uw taart soort</option>
-                <option value="1">Chocolate (2 euro pp)</option>
-                <option value="2">Red velvet (3 euro pp)</option>
-                <option value="3">Biscuitdeeg (1 euro pp)</option>
-            </select>
-        </div>
-        <div class="input-field col s3" id="breed">
-            <select required>
-                <option value="" selected disabled>kies uw bekleding</option>
-                <option value="1">Fondant (1 euro pp)</option>
-                <option value="2">Marsepein (3 euro pp)</option>
-            </select>
-        </div>
-        <div class="input-field col s3" id="breed">
-            <select required>
-                <option value="" selected disabled>Kies uw taart vulling (1 per laag)</option>
-                <option value="1">Champagneroom met verse frambozen (3 euro pp)</option>
-                <option value="2">Gele room met Oreo vulling (2 euro pp)</option>
-                <option value="3">Kindervulling (vruchten compote en room) (1 euro pp)</option>
-            </select>
-        </div>
-        <div class="input-field col s3" id="breed">
-            <select required>
-                <option value="" selected disabled>Niveau van decoratie:</option>
-                <option value="1">Eenvoudig (1 euro pp)</option>
-                <option value="2">Gemiddeld (2 euro pp)</option>
-                <option value="3">Uitgebreid (3 euro pp)</option>
-            </select>
-        </div>
+        @helpers.wizard.type_cake_select(db)
+        @helpers.wizard.bekleding_select(db)
+        @helpers.wizard.vulling_select(db)
+        @helpers.wizard.niv_decoratie_select(db)
         <input type="submit" name="submit" value="Volgende" />
     </form>
 </body>

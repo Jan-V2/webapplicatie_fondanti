@@ -6,31 +6,14 @@
 }
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    @*<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">*@
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="~/StyleSheetwizard.css">
-    <title></title>
+    @helpers.wizard.materialized_header()
 </head>
 <body>
     <form method="post" class="breed">
-        <div class="col s3 row">
-            Allergieën:
-            <script type="text/javascript">
-                function showfield(name) {
-                    if (name == 'Other') document.getElementById('div1').innerHTML = 'Anders namelijk: <input type="text" name="other" />';
-                    else document.getElementById('div1').innerHTML = '';
-                }
-            </script>
+        @helpers.wizard.allergieen()
 
-            <select name="travel_arriveVia" id="travel_arriveVia" onchange="showfield(this.options[this.selectedIndex].value)">
-                <option selected="selected">Geen</option>
-                <option value="Plane">Glutenvrij</option>
-                <option value="Other">Anders, namelijk</option>
-            </select>
-            <div id="div1"></div>
-            <input type="submit" name="submit" value="Volgende" />
-        </div>
+
+        <input type="submit" name="submit" value="Volgende" />
     </form>
 </body>
 </html>

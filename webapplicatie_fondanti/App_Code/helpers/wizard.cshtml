@@ -38,3 +38,75 @@
         @select_uit_db(db.naam_vulling, db.vulling)
 
 }
+
+@helper aantal_lagen()
+    {
+        <div class="col s3 row">
+            Aantal lagen: (minimaal 15 personen per laag.)
+            <div class="input-field inline">
+                <input id="personen_inline" type="number" name="lagen" class="validate" min="1" required />
+            </div>
+        </div>
+}
+
+@helper aantal_personen()
+    {
+        <div class="col s3 row">
+            Aantal personen:
+            <div class="input-field inline">
+                <input id="personen_inline" type="number" class="validate" name="personen" min="1" required>
+            </div>
+        </div>
+}
+
+@helper allergieen()
+    {
+        <script type="text/javascript">
+            function allergieen_showfield(name) {
+                if (name == 'Other') document.getElementById('exp_div').innerHTML = 'Other: <input type="text" name="other" />';
+                else document.getElementById('exp_div').innerHTML = '';
+            }
+        </script>
+
+        <select name="allergieen" id="travel_arriveVia" onchange="allergieen_showfield(this.options[this.selectedIndex].value)">
+            <option selected="selected">Allergieën ...</option>
+            <option value="Plane">Glutenvrij</option>
+            <option value="Train">geen</option>
+            <option value="Other">Anders, namelijk</option>
+        </select>
+        <div id="exp_div"></div>
+}
+
+@helper thema_selector()
+    {
+        <script type="text/javascript">
+            function showfield(name) {
+                if (name == 'Other') document.getElementById('anders').innerHTML = 'Anders namelijk: <input type="text" name="other" />';
+                else document.getElementById('anders').innerHTML = '';
+            }
+        </script>
+        <div class="col s3 row">
+            Thema
+            <select name="thema" id="thema" onchange="showfield(this.options[this.selectedIndex].value)">
+                <option selected="selected">Verjaardag volwassene</option>
+                <option value="Plane">Verjaardag kind</option>
+                <option value="train">Bruiloft</option>
+                <option value="Other">Anders, namelijk</option>
+            </select>
+            <div id="anders"></div>
+        </div>
+}
+
+@helper materialized_header()
+    {
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="~/StyleSheetwizard.css">
+        <title></title>
+        <script>
+            $(document).ready(function () {
+                $('select').formSelect();
+            });
+        </script>
+}
