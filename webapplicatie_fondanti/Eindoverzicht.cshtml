@@ -1,6 +1,4 @@
-﻿
-
-@{
+﻿@{
     var datum = DateTime.Today;
     int persoon = Convert.ToInt32(Session["personen"]);
     string taartsoort = Convert.ToString(Session["taartsoort"]);
@@ -10,13 +8,6 @@
     string Thema = Convert.ToString(Session["thema"]);
     string lagen = Convert.ToString(Session["lagen"]);
     string allergie = Convert.ToString(Session["allergieen"]);
-
-
-
-
-
-
-
 
     if (IsPost)
     {
@@ -34,25 +25,80 @@
     var db = new Db_Stuff.Mssql_Taarten_Data();
 }
 
-
-
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     @helpers.wizard.materialized_header()
 </head>
 <body>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#!" class="brand-logo center"></a>
+            <ul class="left hide-on-med-and-down">
+                <li><a href="~/Wizard/Aantalpersonen.cshtml">Aantal personen</a></li>
+                <li><a href="~/Wizard/Aantallagen.cshtml">Aantal lagen</a></li>
+                <li><a href="~/Wizard/Thema.cshtml">Thema</a></li>
+                <li><a href="~/Wizard/Bekleding.cshtml">Bekleding</a></li>
+                <li><a href="~/Wizard/Allergieen.cshtml">Allergieën</a></li>
+                <li class="active"><a href="~/Eindoverzicht.cshtml">Overzicht</a></li>
+
+            </ul>
+        </div>
+    </nav>
+
     <div class="formulier">
         <form method="post" class="breed">
 
-            @helpers.wizard.allergieen()
-            @helpers.wizard.aantal_personen()
-            @helpers.wizard.aantal_lagen()
-            @helpers.wizard.thema_selector()
-            @helpers.wizard.type_cake_select(db)
-            @helpers.wizard.bekleding_select(db)
-            @helpers.wizard.vulling_select(db)
-            @helpers.wizard.niv_decoratie_select(db)
+            <table style="width:100%">
+
+                <tr>
+                    
+                    <td>@helpers.wizard.aantal_personen()</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    
+                    <td>@helpers.wizard.aantal_lagen()</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    
+                    <td>@helpers.wizard.thema_selector()</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    
+                    <td>@helpers.wizard.type_cake_select(db)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    
+                    <td>@helpers.wizard.bekleding_select(db)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    
+                    <td>@helpers.wizard.vulling_select(db)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    
+                    <td>@helpers.wizard.niv_decoratie_select(db)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    
+                    <td>@helpers.wizard.allergieen()</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
 
             <div class="file-field input-field">
                 <div class="btn">
@@ -64,7 +110,7 @@
                 </div>
             </div>
 
-            
+
             <input type="submit" name="name" value="Volgende" />
         </form>
     </div>
