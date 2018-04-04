@@ -3,13 +3,9 @@
 
 @helper select_uit_db(string naam_onderdeel, string naam_form, ReadOnlyCollection<Db_Stuff.Onderdeel> lijst)
     {
-<<<<<<< HEAD
         <div class="input-field col s3 breed" id="breed">
             <select required name="@naam_form" id="naam_form" >
-=======
-        <div class="input-field col s3" id="breed">
-            <select required name="@naam_form" id="@naam_form">
->>>>>>> 7fe57e55cc88c714d0f5d89b124054cf1659ea7c
+
                 <option value="" selected disabled>Kies uw @naam_onderdeel</option>
                 @{
                     for (int i = 0; i < lijst.Count; i++)
@@ -103,13 +99,8 @@
             }
         </script>
         <div class="col s3 row">
-<<<<<<< HEAD
-            
+    
             <select class="breed" name="thema" id="thema" onchange="showfield(this.options[this.selectedIndex].value)">
-=======
-
-            <select name="thema" id="thema" onchange="showfield(this.options[this.selectedIndex].value)">
->>>>>>> 7fe57e55cc88c714d0f5d89b124054cf1659ea7c
 
                 <option selected disabled>Kies een thema</option>
                 <option value="verjaardag volwassenen">Verjaardag volwassene</option>
