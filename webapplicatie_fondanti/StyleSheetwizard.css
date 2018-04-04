@@ -1,8 +1,22 @@
-﻿.formulier {
+﻿
+@media screen and (max-width:800px){
+    .breed{
+        width: 100%;
+    }
+    .formulier{
+        width: 100%;
+    }
+    body{
+        width: 100%;
+    }
+}
+@media only screen and (min-width: 800px){
+.formulier {
     margin-right: 40%;
 }
 body{
     margin-left: 5%;
     margin-top: 10%;
     margin-right: 20%;
+}
 }

@@ -3,7 +3,7 @@
 
 @helper select_uit_db(string naam_onderdeel, string naam_form, ReadOnlyCollection<Db_Stuff.Onderdeel> lijst)
     {
-        <div class="input-field col s3" id="breed">
+        <div class="input-field col s3 breed" id="breed">
             <select required name="@naam_form" id="naam_form" >
                 <option value="" selected disabled>Kies uw @naam_onderdeel</option>
                 @{
@@ -41,7 +41,7 @@
 
 @helper aantal_lagen()
     {
-        <div class="col s3 row">
+        <div class="col s3 row breed">
             Aantal lagen: (minimaal 15 personen per laag.)
             <div class="input-field inline">
                 <input id="personen_inline" type="number" name="lagen" class="validate" min="1" required />
@@ -51,7 +51,7 @@
 
 @helper aantal_personen()
     {
-        <div class="col s3 row">
+        <div class="col s3 row breed">
             Aantal personen:
             <div class="input-field inline">
                 <input id="personen_inline" type="number" class="validate" name="personen" min="1" required>
@@ -68,7 +68,7 @@
             }
         </script>
 
-        <select name="allergieen" id="travel_arriveVia" onchange="allergieen_showfield(this.options[this.selectedIndex].value)">
+        <select class="breed" name="allergieen" id="travel_arriveVia" onchange="allergieen_showfield(this.options[this.selectedIndex].value)">
             <option selected="selected">Allergieën ...</option>
             <option value="Plane">Glutenvrij</option>
             <option value="Train">geen</option>
@@ -87,7 +87,7 @@
         </script>
         <div class="col s3 row">
             
-            <select name="thema" id="thema" onchange="showfield(this.options[this.selectedIndex].value)">
+            <select class="breed" name="thema" id="thema" onchange="showfield(this.options[this.selectedIndex].value)">
 
                 <option selected disabled>Kies een thema</option>
                 <option value="verjaardag volwassenen">Verjaardag volwassene</option>
