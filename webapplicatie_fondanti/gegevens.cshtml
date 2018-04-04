@@ -27,13 +27,14 @@
         WebMail.Send(
                to: email,
                subject: "Prijs indicatie Fondanti",
-               body: "Beste " + voornaam + " " + achternaam + "\n" +
-               "Wij hebben gezien dat u een taart heeft samengesteld. De indicatie prijs van uw taart is: " + "\n" +
-               "De samenstelling van uw taart is: " + "\n" +
-               "Uw overig ingevulde gegevens zijn: " + "\n" +
-               telefoonnummer + "\n" +
-               straat + " " + huisnummer + toevoeging + "\n" +
-               postcode + " " + plaats + "\n" + "De bezorgdatum is: " + datum
+               body: "<p> dit is gewoon een test tekstje <br></p>" +
+               "Beste " + voornaam + " " + achternaam + "<br>" +
+               "<p>Wij hebben gezien dat u een taart heeft samengesteld.</p> De indicatie prijs van uw taart is: " +
+               "<p>De samenstelling van uw taart is: </p>" +
+               "<p>Uw overig ingevulde gegevens zijn:</p>" +
+               telefoonnummer + "<br>" +
+               straat + " " + huisnummer + toevoeging + "<br>" +
+               postcode + " " + plaats + "<br>" + "De bezorgdatum is: " + datum
                );
 
         WebMail.Send(
