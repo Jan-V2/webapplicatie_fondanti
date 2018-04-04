@@ -2,14 +2,14 @@
 
 @{
     var datum = DateTime.Today;
-    int persoon = Convert.ToInt16(Session["personen"]);
+    int persoon = Convert.ToInt32(Session["personen"]);
     string taartsoort = Convert.ToString(Session["taartsoort"]);
     string bekleding = Convert.ToString(Session["bekleding"]);
     string vulling = Convert.ToString(Session["vulling"]);
     string decoratieniveau = Convert.ToString(Session["decoratieniveau"]);
-    string Thema = Convert.ToString(Session["Thema"]);
+    string Thema = Convert.ToString(Session["thema"]);
     string lagen = Convert.ToString(Session["lagen"]);
-    string allergie = Convert.ToString(Session["allergie"]);
+    string allergie = Convert.ToString(Session["allergieen"]);
 
 
 
@@ -20,6 +20,14 @@
 
     if (IsPost)
     {
+        Session["personen"] = Request.Form["personen"];
+        Session["taartsoort"] = Request.Form["taartsoort"];
+        Session["bekleding"] = Request.Form["bekleding"];
+        Session["vulling"] = Request.Form["vulling"];
+        Session["decoratieniveau"] = Request.Form["decoratieniveau"];
+        Session["thema"] = Request.Form["thema"];
+        Session["lagen"] = Request.Form["lagen"];
+        Session["allergieen"] = Request.Form["allergieen"];
         Response.Redirect("gegevens.cshtml");
     }
 
@@ -40,6 +48,7 @@
             @helpers.wizard.allergieen()
             @helpers.wizard.aantal_personen()
             @helpers.wizard.aantal_lagen()
+            @helpers.wizard.thema_selector()
             @helpers.wizard.type_cake_select(db)
             @helpers.wizard.bekleding_select(db)
             @helpers.wizard.vulling_select(db)

@@ -1,41 +1,43 @@
 ﻿@{
-    int persoon = Convert.ToInt16(Session["personen"]);
+    int persoon = Convert.ToInt32(Session["personen"]);
     string taartsoort = Convert.ToString(Session["taartsoort"]);
     string bekleding = Convert.ToString(Session["bekleding"]);
     string vulling = Convert.ToString(Session["vulling"]);
     string decoratieniveau = Convert.ToString(Session["decoratieniveau"]);
-    string Thema = Convert.ToString(Session["Thema"]);
+    string Thema = Convert.ToString(Session["thema"]);
     string lagen = Convert.ToString(Session["lagen"]);
-    string allergie = Convert.ToString(Session["allergie"]);
+    string allergie = Convert.ToString(Session["allergieen"]);
 
-    var voornaam = Request.Form["voornaam"];
-    var achternaam = Request.Form["achternaam"];
-    var email = Request.Form["email"];
-    var telefoonnummer = Request.Form["telefoonnummer"];
-    var straat = Request.Form["straat"];
-    var huisnummer = Request.Form["huisnummer"];
-    var toevoeging = Request.Form["toevoeging"];
-    var postcode = Request.Form["postcode"];
-    var plaats = Request.Form["plaats"];
-    var datum = Request.Form["bezorgdatum"];
-    var email2 = "mous1700@student.nhl.nl"; //voer hier het email adres in voor fondanti
+    string test = "";
 
     if (IsPost)
     {
 
+        var voornaam = Request.Form["voornaam"];
+        var achternaam = Request.Form["achternaam"];
+        var email = Request.Form["email"];
+        var telefoonnummer = Request.Form["telefoonnummer"];
+        var straat = Request.Form["straat"];
+        var huisnummer = Request.Form["huisnummer"];
+        var toevoeging = Request.Form["toevoeging"];
+        var postcode = Request.Form["postcode"];
+        var plaats = Request.Form["plaats"];
+        var datum = Request.Form["bezorgdatum"];
+        var email2 = "mous1700@student.nhl.nl"; //voer hier het email adres in voor fondanti
+
 
         WebMail.Send(
-               to: email,
-               subject: "Prijs indicatie Fondanti",
-               body: "<p> dit is gewoon een test tekstje <br></p>" +
-               "Beste " + voornaam + " " + achternaam + "<br>" +
-               "<p>Wij hebben gezien dat u een taart heeft samengesteld.</p> De indicatie prijs van uw taart is: " +
-               "<p>De samenstelling van uw taart is: </p>" +
-               "<p>Uw overig ingevulde gegevens zijn:</p>" +
-               telefoonnummer + "<br>" +
-               straat + " " + huisnummer + toevoeging + "<br>" +
-               postcode + " " + plaats + "<br>" + "De bezorgdatum is: " + datum
-               );
+       to: email,
+       subject: "Prijs indicatie Fondanti",
+       body: "<p> dit is gewoon een test tekstje <br></p>" +
+       "Beste " + voornaam + " " + achternaam + "<br>" +
+       "<p>Wij hebben gezien dat u een taart heeft samengesteld.</p> De indicatie prijs van uw taart is: " +
+       "<p>De samenstelling van uw taart is: </p>" +
+       "<p>Uw overig ingevulde gegevens zijn:</p>" +
+       telefoonnummer + "<br>" +
+       straat + " " + huisnummer + toevoeging + "<br>" +
+       postcode + " " + plaats + "<br>" + "De bezorgdatum is: " + datum
+       );
 
         WebMail.Send(
                to: email2,
@@ -50,14 +52,6 @@
                straat + " " + huisnummer + toevoeging + "\n" +
                postcode + " " + plaats + "\n" + "De gewenste bezorgdatum is: " + datum
                );
-
-
-
-
-
-
-
-
 
 
 

@@ -1,17 +1,17 @@
 ﻿@using System.Collections.Generic;
 @using System.Collections.ObjectModel;
 
-@helper select_uit_db(string naam, ReadOnlyCollection<Db_Stuff.Onderdeel> lijst)
+@helper select_uit_db(string naam_onderdeel, string naam_form, ReadOnlyCollection<Db_Stuff.Onderdeel> lijst)
     {
         <div class="input-field col s3" id="breed">
-            <select required>
-                <option value="" selected disabled>Kies uw @naam</option>
+            <select required name="@naam_form" >
+                <option value="" selected disabled>Kies uw @naam_onderdeel</option>
                 @{
                     for (int i = 0; i < lijst.Count; i++)
                     {
                         var odeel = lijst[i];
                         var prijs = (float)odeel.prijs_in_cent / 100f;
-                        <option value="@i">@odeel.naam (@prijs euro pp)</option>
+                        <option value="@odeel.naam">@odeel.naam (@prijs euro pp)</option>
                     }
                 }
             </select>
@@ -20,21 +20,21 @@
 
 @helper bekleding_select(Db_Stuff.Taarten_Data db)
     {
-        @select_uit_db(db.naam_bekleding, db.bekleding)
+        @select_uit_db(db.naam_bekleding, "bekleding", db.bekleding)
 
 }
 @helper niv_decoratie_select(Db_Stuff.Taarten_Data db)
     {
-        @select_uit_db(db.naam_nivea_van_decoratie, db.nivea_van_decoratie)
+        @select_uit_db(db.naam_nivea_van_decoratie, "decoratieniveau", db.nivea_van_decoratie)
 }
 @helper type_cake_select(Db_Stuff.Taarten_Data db)
     {
-        @select_uit_db(db.naam_type_cake, db.type_cake)
+        @select_uit_db(db.naam_type_cake, "taartsoort", db.type_cake)
 
 }
 @helper vulling_select(Db_Stuff.Taarten_Data db)
     {
-        @select_uit_db(db.naam_vulling, db.vulling)
+        @select_uit_db(db.naam_vulling, "vulling", db.vulling)
 
 }
 
@@ -88,9 +88,9 @@
             Thema
             <select name="thema" id="thema" onchange="showfield(this.options[this.selectedIndex].value)">
                 <option selected="selected">Verjaardag volwassene</option>
-                <option value="Plane">Verjaardag kind</option>
-                <option value="train">Bruiloft</option>
-                <option value="Other">Anders, namelijk</option>
+                <option value="Verjaardag kind">Verjaardag kind</option>
+                <option value="Bruiloft">Bruiloft</option>
+                <option value="Anders, namelijk">Anders, namelijk</option>
             </select>
             <div id="anders"></div>
         </div>

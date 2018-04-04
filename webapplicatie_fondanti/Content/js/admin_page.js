@@ -1,5 +1,11 @@
 ﻿$("document").ready(() => {
 
+    $(window).on("okbuttonclicked", function() {
+        console.log("test");
+        location.reload(false);
+    });
+
+
     let table = $("#admin_tabel");
 
     function trim_end_spaces(string) {
@@ -128,10 +134,19 @@
                         prijs:prijs
                     },
                     function (res, status) {
+                        let myalert = function(al, $){
+                            return function(msg) {
+                                al(msg);
+                                $(window).trigger("okbuttonclicked");
+                            };
+                        }(window.alert, window.jQuery);
+
                         if (res === "ok") {
-                            res = "Onderdeel aangemaakt."
+                            myalert("Het onderdeel is toegevoegd")
+                        }else{
+                            alert(res)
                         }
-                        alert(res)
+
 
                     });
             }
@@ -154,5 +169,7 @@
         }
 
     });
+
+
 });
 

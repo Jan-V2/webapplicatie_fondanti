@@ -1,8 +1,7 @@
 ﻿@{
     if (IsPost)
     {
-        Session["allergie"] = Request.Form["allergie"];
-        //Response.Redirect("/Eindoverzicht.cshtml");
+        Session["allergieen"] = Request.Form["allergieen"];
         Response.Redirect("/Eindoverzicht.cshtml");
 
     }
