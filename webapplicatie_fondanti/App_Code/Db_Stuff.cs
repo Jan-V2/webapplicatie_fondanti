@@ -8,7 +8,7 @@ using WebMatrix.Data;
 
 public static class Db_Stuff
 {
-    public static String[] type_namen = { "Soort  cake", "Bekleding", "Vulling", "Nivea van decoratie" };
+    public static String[] type_namen = { "Soort  cake", "Bekleding", "Vulling", "Niveau van decoratie" };
     //public static naam naar db type = dict
 
     static private Database get_db_con()
