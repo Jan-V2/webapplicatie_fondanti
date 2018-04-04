@@ -4,7 +4,7 @@
 @helper select_uit_db(string naam_onderdeel, string naam_form, ReadOnlyCollection<Db_Stuff.Onderdeel> lijst)
     {
         <div class="input-field col s3" id="breed">
-            <select required name="@naam_form" >
+            <select required name="@naam_form" id="naam_form" >
                 <option value="" selected disabled>Kies uw @naam_onderdeel</option>
                 @{
                     for (int i = 0; i < lijst.Count; i++)
@@ -12,6 +12,7 @@
                         var odeel = lijst[i];
                         var prijs = (float)odeel.prijs_in_cent / 100f;
                         <option value="@odeel.naam">@odeel.naam (@prijs euro pp)</option>
+
                     }
                 }
             </select>

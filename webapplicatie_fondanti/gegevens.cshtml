@@ -65,8 +65,7 @@
 }
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
-    <title></title>
+    @helpers.wizard.materialized_header();
 </head>
 <body>
     <div class="row">
@@ -130,14 +129,15 @@
             <div class="col s3 row">
                 Wanneer wilt u de taart hebben:
                 <div class="input-field inline">
-                    <input id="Date_inline" type="date" name="bezorgdatum" class="validate" min="3-4-2018" required />
+                    <input id="Date_inline" type="date" name="bezorgdatum" class="validate datepicker" min="3-4-2018" required />
                 </div>
             </div>
             <div>
                 <input type="submit" value="Submit">
             </div>
-            
         </form>
     </div>
+    <script src="~/Content/js/gegevens_page.js"></script>
+
 </body>
 </html>
