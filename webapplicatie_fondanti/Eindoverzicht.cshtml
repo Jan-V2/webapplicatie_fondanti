@@ -32,7 +32,7 @@
 <body>
     <nav>
         <div class="nav-wrapper">
-            <a href="#!" class="brand-logo center">Fondanti</a>
+            <a href="#!" class="brand-logo center"></a>
             <ul class="left hide-on-med-and-down">
                 <li><a href="~/Wizard/Aantalpersonen.cshtml">Aantal personen</a></li>
                 <li><a href="~/Wizard/Aantallagen.cshtml">Aantal lagen</a></li>
@@ -48,15 +48,57 @@
     <div class="formulier">
         <form method="post" class="breed">
 
+            <table style="width:100%">
 
-            @helpers.wizard.aantal_personen()
-            @helpers.wizard.aantal_lagen()
-            @helpers.wizard.thema_selector()
-            @helpers.wizard.type_cake_select(db)
-            @helpers.wizard.bekleding_select(db)
-            @helpers.wizard.vulling_select(db)
-            @helpers.wizard.niv_decoratie_select(db)
-            @helpers.wizard.allergieen()
+                <tr>
+                    
+                    <td>@helpers.wizard.aantal_personen()</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    
+                    <td>@helpers.wizard.aantal_lagen()</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    
+                    <td>@helpers.wizard.thema_selector()</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    
+                    <td>@helpers.wizard.type_cake_select(db)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    
+                    <td>@helpers.wizard.bekleding_select(db)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    
+                    <td>@helpers.wizard.vulling_select(db)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    
+                    <td>@helpers.wizard.niv_decoratie_select(db)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    
+                    <td>@helpers.wizard.allergieen()</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
 
             <div class="file-field input-field">
                 <div class="btn">
