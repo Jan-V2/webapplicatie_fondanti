@@ -51,49 +51,27 @@
             <table style="width:100%">
 
                 <tr>
-                    
                     <td>@helpers.wizard.aantal_personen()</td>
                     <td></td>
                     <td></td>
                 </tr>
                 <tr>
-                    
                     <td>@helpers.wizard.aantal_lagen()</td>
                     <td></td>
                     <td></td>
                 </tr>
                 <tr>
-                    
+
                     <td>@helpers.wizard.thema_selector()</td>
                     <td></td>
                     <td></td>
                 </tr>
+                @helpers.wizard.eindscherm_table_row(@helpers.wizard.type_cake_select(db), "type_cake")
+                @helpers.wizard.eindscherm_table_row(@helpers.wizard.bekleding_select(db), "bekleding")
+                @helpers.wizard.eindscherm_table_row(@helpers.wizard.vulling_select(db), "vulling")
+                @helpers.wizard.eindscherm_table_row(@helpers.wizard.niv_decoratie_select(db), "niv_deco")
                 <tr>
-                    
-                    <td>@helpers.wizard.type_cake_select(db)</td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    
-                    <td>@helpers.wizard.bekleding_select(db)</td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    
-                    <td>@helpers.wizard.vulling_select(db)</td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    
-                    <td>@helpers.wizard.niv_decoratie_select(db)</td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    
+
                     <td>@helpers.wizard.allergieen()</td>
                     <td></td>
                     <td></td>
@@ -115,6 +93,8 @@
         </form>
     </div>
     <br />
+    <script src="~/Content/js/eindscherm_page.js"></script>
+    <button id="test">test</button>
 </body>
 </html>
 
