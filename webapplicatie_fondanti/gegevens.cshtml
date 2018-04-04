@@ -8,7 +8,6 @@
     string lagen = Convert.ToString(Session["lagen"]);
     string allergie = Convert.ToString(Session["allergieen"]);
 
-    string test = "";
 
     if (IsPost)
     {
@@ -27,30 +26,36 @@
 
 
         WebMail.Send(
-       to: email,
-       subject: "Prijs indicatie Fondanti",
-       body: "<p> dit is gewoon een test tekstje <br></p>" +
-       "Beste " + voornaam + " " + achternaam + "<br>" +
-       "<p>Wij hebben gezien dat u een taart heeft samengesteld.</p> De indicatie prijs van uw taart is: " +
-       "<p>De samenstelling van uw taart is: </p>" +
-       "<p>Uw overig ingevulde gegevens zijn:</p>" +
-       telefoonnummer + "<br>" +
-       straat + " " + huisnummer + toevoeging + "<br>" +
-       postcode + " " + plaats + "<br>" + "De bezorgdatum is: " + datum
-       );
+
+               to: email,
+               subject: "Prijs indicatie Fondanti",
+               body:
+               "Beste " + voornaam + " " + achternaam + "," + "<br>" +
+               "<p>Wij hebben gezien dat u een taart heeft samengesteld.</p> De indicatie prijs van uw taart is: " +
+               "<p>De samenstelling van uw taart is: </p>" +
+               "<p>Uw overig ingevulde gegevens zijn:</p>" +
+               "Adres: " + straat + " " + huisnummer + toevoeging + "<br>" +
+               "Postcode: " + postcode + " " + plaats + "<br>" +
+               "telefoonnummer: " + telefoonnummer + "<br>"
+               + "De bezorgdatum is: " + datum +
+               "<img src=https://fondanti.nl/wp-content/uploads/2017/09/Tippy-1752x1200.jpg />"
+
+               );
 
         WebMail.Send(
                to: email2,
                subject: "Samenstelling van klant",
-               body: "Beste medewerker, " + "\r\n" +
-               "Er heeft een klant een taart samengesteld." + "\n" +
-               "De samenstelling van de taart is: " + "Aantal personen: " + persoon + "\n" + "Aantal lagen " + lagen + "\n" + "Soort thema: " + Thema + "\n"
-               + "Soort taart: " + taartsoort + "\n" + "Bekleding: " + bekleding + "\n" + "Vulling: " + vulling + "\n" + "Niveau van decoratie: " + decoratieniveau + "\n" +
-               "Allergieen: " + allergie + "\n" +
-               "De overige ingevulde gegevens zijn: " + "\n" +
-               telefoonnummer + "\n" +
-               straat + " " + huisnummer + toevoeging + "\n" +
-               postcode + " " + plaats + "\n" + "De gewenste bezorgdatum is: " + datum
+               body: "Beste medewerker, " + "<br>" + "<br>" +
+               "Er heeft een klant een taart samengesteld." + "<br>" +
+               "De samenstelling van de taart is: " + "<br>" + "<br>" + "Aantal personen: " + persoon + "<br>" + "Aantal lagen " + lagen + "<br>" + "Soort thema: " + Thema + "<br>"
+               + "Soort taart: " + taartsoort + "<br>" + "Bekleding: " + bekleding + "<br>" + "Vulling: " + vulling + "<br>" + "Niveau van decoratie: " + decoratieniveau + "<br>" +
+               "Allergieen: " + allergie + "<br>" + "<br>" +
+               "De overige ingevulde gegevens zijn: " + "<br>" +
+               "Adres: " + straat + " " + huisnummer + toevoeging + "<br>" +
+               "Postcode: " + postcode + " " + plaats + "<br>" +
+               "telefoonnummer: " + telefoonnummer + "<br>" +
+               "De gewenste bezorgdatum is: " + datum + "<br>" +
+               "<img src=https://fondanti.nl/wp-content/uploads/2017/09/Tippy-1752x1200.jpg />"
                );
 
 
@@ -131,7 +136,7 @@
             <div>
                 <input type="submit" value="Submit">
             </div>
-
+            
         </form>
     </div>
 </body>
