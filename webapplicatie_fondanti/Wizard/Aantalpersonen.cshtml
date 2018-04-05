@@ -26,13 +26,9 @@
         </div>
     </nav>
     <form method="post" class="breed">
-        <div class="col s3 row">
-            Aantal personen:
-            <div class="input-field inline">
-                <input id="personen_inline" type="number" class="validate" name="personen" min="1" required>
-            </div>
-            <input type="submit" name="submit" value="Volgende" />
-        </div>
+        @helpers.wizard.aantal_personen(Convert.ToInt32(Session["personen"]));
+        <input type="submit" name="submit" value="Volgende" />
+
     </form>
 </body>
 </html>

@@ -19,6 +19,7 @@
         Session["thema"] = Request.Form["thema"];
         Session["lagen"] = Request.Form["lagen"];
         Session["allergieen"] = Request.Form["allergieen"];
+        Session["tot_str"] = Request.Form["tot_str"];
         Response.Redirect("gegevens.cshtml");
     }
 
@@ -81,10 +82,10 @@
                     <td id="totaal_prijs"></td>
                 </tr>
             </table>
-            <input type="hidden" value="" name="deco_str" id="decoratieniveau_str" />
+            @*<input type="hidden" value="" name="deco_str" id="decoratieniveau_str" />
             <input type="hidden" value="" name="soort_str" id="taartsoort_str" />
             <input type="hidden" value="" name="bekleding_str" id="bekleding_str" />
-            <input type="hidden" value="" name="vul_str" id="vulling_str" />
+            <input type="hidden" value="" name="vul_str" id="vulling_str" />*@
             <input type="hidden" value="" name="tot_str" id="tot_str" />
 
 

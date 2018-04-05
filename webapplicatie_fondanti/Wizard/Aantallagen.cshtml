@@ -1,10 +1,11 @@
 ﻿@{
-    Session["lagen"] = Request.Form["lagen"];
+
 
 
 
     if (IsPost)
     {
+        Session["lagen"] = Request.Form["lagen"];
         Response.Redirect("/Wizard/Thema.cshtml");
     }
     var db = new Db_Stuff.Mssql_Taarten_Data();
@@ -29,13 +30,9 @@
         </div>
     </nav>
     <form method="post" class="breed">
-        <div class="col s3 row">
-            Aantal lagen: (minimaal 15 personen per laag.)
-            <div class="input-field inline">
-                <input id="personen_inline" type="number" name="lagen" class="validate" min="1" required />
-            </div>
-            <input type="submit" name="submit" value="Volgende" />
-        </div>
+        @helpers.wizard.aantal_lagen(Convert.ToInt32(Session["lagen"]))
+        <input type="submit" name="submit" value="Volgende" />
+
     </form>
     @*@helpers.wizard.type_cake_select(db)*@
 </body>
