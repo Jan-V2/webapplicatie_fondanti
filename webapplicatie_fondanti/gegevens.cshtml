@@ -7,7 +7,7 @@
     string Thema = Convert.ToString(Session["thema"]);
     string lagen = Convert.ToString(Session["lagen"]);
     string allergie = Convert.ToString(Session["allergieen"]);
-
+    string prijs = Convert.ToString(Session["tot_str"]);
 
     if (IsPost)
     {
@@ -31,14 +31,16 @@
                subject: "Prijs indicatie Fondanti",
                body:
                "Beste " + voornaam + " " + achternaam + "," + "<br>" +
-               "<p>Wij hebben gezien dat u een taart heeft samengesteld.</p> De indicatie prijs van uw taart is: " +
-               "<p>De samenstelling van uw taart is: </p>" +
-               "<p>Uw overig ingevulde gegevens zijn:</p>" +
+               "<p>Wij hebben gezien dat u een taart heeft samengesteld.</p> De indicatie prijs van uw taart is: " + prijs + "<br>" +
+               "De samenstelling van de taart is: " + "<br>" + "<br>" + "Aantal personen: " + persoon + "<br>" + "Aantal lagen " + lagen + "<br>" + "Soort thema: " + Thema + "<br>"
+               + "Soort taart: " + taartsoort + "<br>" + "Bekleding: " + bekleding + "<br>" + "Vulling: " + vulling + "<br>" + "Niveau van decoratie: " + decoratieniveau + "<br>" +
+               "Allergieen: " + allergie + "<br>" +
+               "<p>Uw persoonlijke gegevens zijn:</p>" +
                "Adres: " + straat + " " + huisnummer + toevoeging + "<br>" +
                "Postcode: " + postcode + " " + plaats + "<br>" +
-               "telefoonnummer: " + telefoonnummer + "<br>"
+               "Telefoonnummer: " + telefoonnummer + "<br>"
                + "De bezorgdatum is: " + datum + "<br>" +
-               "Als u deze taart wilt bestellen kunt u op deze email reageren." +
+               "Als u deze taart wilt bestellen kunt u contact met ons opnemen door op deze email te reageren." +
                "<img \" width: 100%; height: auto; \" src=https://fondanti.nl/wp-content/uploads/2017/09/Tippy-1752x1200.jpg />"
 
                );
@@ -47,14 +49,14 @@
                to: email2,
                subject: "Samenstelling van klant",
                body: "Beste medewerker, " + "<br>" + "<br>" +
-               "Er heeft een klant een taart samengesteld." + "<br>" +
+               "Er heeft een klant een taart samengesteld." + "<br>" + "De indicatie prijs is: " + prijs + "<br>" +
                "De samenstelling van de taart is: " + "<br>" + "<br>" + "Aantal personen: " + persoon + "<br>" + "Aantal lagen " + lagen + "<br>" + "Soort thema: " + Thema + "<br>"
                + "Soort taart: " + taartsoort + "<br>" + "Bekleding: " + bekleding + "<br>" + "Vulling: " + vulling + "<br>" + "Niveau van decoratie: " + decoratieniveau + "<br>" +
                "Allergieen: " + allergie + "<br>" + "<br>" +
-               "De overige ingevulde gegevens zijn: " + "<br>" +
+               "De persoonlijke gegevens zijn: " + "<br>" +
                "Adres: " + straat + " " + huisnummer + toevoeging + "<br>" +
                "Postcode: " + postcode + " " + plaats + "<br>" +
-               "telefoonnummer: " + telefoonnummer + "<br>" +
+               "Telefoonnummer: " + telefoonnummer + "<br>" +
                "De gewenste bezorgdatum is: " + datum + "<br>" +
                "<img style= \" width: 100%; height: auto; \" src=\"https://fondanti.nl/wp-content/uploads/2017/09/Tippy-1752x1200.jpg \" />"
                );
@@ -102,7 +104,7 @@
                 </div>
                 <div class="input-field col s2">
                     <br />
-                    <input id="input_text" type="text" name="huisnummer" required>
+                    <input id="input_text" type="number" name="huisnummer" required>
                     <label for="input_text">Huis nummer:*</label>
                 </div>
                 <div class="input-field col s1">
