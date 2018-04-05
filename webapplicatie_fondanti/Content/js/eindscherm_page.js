@@ -32,7 +32,9 @@ $("document").ready(() => {
            $("#res_" + key).text( "€ " + calced_price);
            eind_res += calced_price;
        }
-       $("#totaal_prijs").text("€ " +  eind_res);
+       let tot = "€ " +  eind_res;
+       $("#totaal_prijs").text(tot);
+       $("#tot_str").val(tot);
    }
 
    $("#test").click(() => {
