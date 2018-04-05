@@ -1,0 +1,142 @@
+﻿@{
+    int persoon = Convert.ToInt32(Session["personen"]);
+    string taartsoort = Convert.ToString(Session["taartsoort"]);
+    string bekleding = Convert.ToString(Session["bekleding"]);
+    string vulling = Convert.ToString(Session["vulling"]);
+    string decoratieniveau = Convert.ToString(Session["decoratieniveau"]);
+    string Thema = Convert.ToString(Session["thema"]);
+    string lagen = Convert.ToString(Session["lagen"]);
+    string allergie = Convert.ToString(Session["allergieen"]);
+    string prijs = Convert.ToString(Session["tot_str"]);
+    
+    if (IsPost)
+    {
+        var voornaam = Request.Form["voornaam"];
+        var achternaam = Request.Form["achternaam"];
+        var email = Request.Form["email"];
+        var telefoonnummer = Request.Form["telefoonnummer"];
+        var straat = Request.Form["straat"];
+        var huisnummer = Request.Form["huisnummer"];
+        var toevoeging = Request.Form["toevoeging"];
+        var postcode = Request.Form["postcode"];
+        var plaats = Request.Form["plaats"];
+        var datum = Request.Form["bezorgdatum"];
+        var email2 = "mous1700@student.nhl.nl"; //voer hier het email adres in voor fondanti
+
+
+        WebMail.Send(
+
+               to: email,
+               subject: "Prijs indicatie Fondanti",
+               body:
+               "Beste " + voornaam + " " + achternaam + "," + "<br>" +
+               "<p>Wij hebben gezien dat u een taart heeft samengesteld.</p> De indicatie prijs van uw taart is: " + prijs + "<br>" +
+               "De samenstelling van de taart is: " + "<br>" + "<br>" + "Aantal personen: " + persoon + "<br>" + "Aantal lagen " + lagen + "<br>" + "Soort thema: " + Thema + "<br>"
+               + "Soort taart: " + taartsoort + "<br>" + "Bekleding: " + bekleding + "<br>" + "Vulling: " + vulling + "<br>" + "Niveau van decoratie: " + decoratieniveau + "<br>" +
+               "Allergieen: " + allergie + "<br>" +
+               "<p>Uw persoonlijke gegevens zijn:</p>" +
+               "Adres: " + straat + " " + huisnummer + toevoeging + "<br>" +
+               "Postcode: " + postcode + " " + plaats + "<br>" +
+               "Telefoonnummer: " + telefoonnummer + "<br>"
+               + "De bezorgdatum is: " + datum + "<br>" +
+               "Als u deze taart wilt bestellen kunt u contact met ons opnemen door op deze email te reageren." +
+               "<img \" width: 100%; height: auto; \" src=https://fondanti.nl/wp-content/uploads/2017/09/Tippy-1752x1200.jpg />"
+
+               );
+
+        WebMail.Send(
+               to: email2,
+               subject: "Samenstelling van klant",
+               body: "Beste medewerker, " + "<br>" + "<br>" +
+               "Er heeft een klant een taart samengesteld." + "<br>" + "De indicatie prijs is: " + prijs + "<br>" +
+               "De samenstelling van de taart is: " + "<br>" + "<br>" + "Aantal personen: " + persoon + "<br>" + "Aantal lagen " + lagen + "<br>" + "Soort thema: " + Thema + "<br>"
+               + "Soort taart: " + taartsoort + "<br>" + "Bekleding: " + bekleding + "<br>" + "Vulling: " + vulling + "<br>" + "Niveau van decoratie: " + decoratieniveau + "<br>" +
+               "Allergieen: " + allergie + "<br>" + "<br>" +
+               "De persoonlijke gegevens zijn: " + "<br>" +
+               "Adres: " + straat + " " + huisnummer + toevoeging + "<br>" +
+               "Postcode: " + postcode + " " + plaats + "<br>" +
+               "Telefoonnummer: " + telefoonnummer + "<br>" +
+               "De gewenste bezorgdatum is: " + datum + "<br>" +
+               "<img style= \" width: 100%; height: auto; \" src=\"https://fondanti.nl/wp-content/uploads/2017/09/Tippy-1752x1200.jpg \" />"
+               );
+        Response.Redirect("~/bevestiging.cshtml");
+    }
+}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    @helpers.wizard.materialized_header()
+</head>
+<body>
+    <div class="row">
+        <form class="col s12" method="post">
+            <div class="row">
+                <div class="input-field col s3">
+                    <br />
+                    <input id="first_name" type="text" name="voornaam" required>
+                    <label for="first_name">Voornaam:*</label>
+                </div>
+                <div class="input-field col s3">
+                    <br />
+                    <input id="last_name" type="text" name="achternaam" required>
+                    <label for="last_name">Achternaam:*</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <br />
+                    <input id="email" type="email" name="email" required>
+                    <label for="email">Email adres:*</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <br />
+                    <input id="input_text" type="number" name="telefoonnummer" maxlength="10" required>
+                    <label for="input_text">Telefoon nummer:*</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s3">
+                    <br />
+                    <input id="input_text" type="text" name="straat" required>
+                    <label for="input_text">Straatnaam:*</label>
+                </div>
+                <div class="input-field col s2">
+                    <br />
+                    <input id="input_text" type="number" name="huisnummer" required>
+                    <label for="input_text">Huis nummer:*</label>
+                </div>
+                <div class="input-field col s1">
+                    <br />
+                    <input id="input_text" type="text" name="toevoeging">
+                    <label for="input_text">Toevoeging:</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s3">
+                    <br />
+                    <input id="input_text" type="text" name="postcode" required maxlength="6">
+                    <label for="input_text">Postcode:*</label>
+                </div>
+
+                <div class="input-field col s3">
+                    <br />
+                    <input id="input_text" type="text" name="plaats" required>
+                    <label for="input_text">Plaats:*</label>
+                </div>
+            </div>
+            <div class="col s3 row">
+                Wanneer wilt u de taart hebben:
+                <div class="input-field inline">
+                    <input id="Date_inline" type="date" name="bezorgdatum" class="validate datepicker" min="3-4-2018" required />
+                </div>
+            </div>
+            <div>
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+    <script src="~/Content/js/gegevens_page.js"></script>
+
+</body>
+</html>
