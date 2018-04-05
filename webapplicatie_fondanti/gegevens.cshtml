@@ -8,10 +8,9 @@
     string lagen = Convert.ToString(Session["lagen"]);
     string allergie = Convert.ToString(Session["allergieen"]);
     string prijs = Convert.ToString(Session["tot_str"]);
-
+    
     if (IsPost)
     {
-
         var voornaam = Request.Form["voornaam"];
         var achternaam = Request.Form["achternaam"];
         var email = Request.Form["email"];
