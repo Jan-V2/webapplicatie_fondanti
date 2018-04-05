@@ -3,19 +3,23 @@
 
 @helper select_uit_db(string naam_onderdeel, string naam_form, ReadOnlyCollection<Db_Stuff.Onderdeel> lijst, string sessie_waarde)
     {
-if (sessie_waarde == null) {
-    sessie_waarde = "";
-}
+        string disabled = "";
+        if (sessie_waarde == null)
+        {
+            sessie_waarde = "Kies uw " + naam_onderdeel;
+            disabled = "disabled";
+        }
         <div class="input-field col s3 breed" id="breed">
-            <select required name="@naam_form" id="@naam_form" >
+            <select required name="@naam_form" id="@naam_form">
 
-                <option value="@sessie_waarde" selected disabled>Kies uw @naam_onderdeel</option>
+                <option selected @disabled>@sessie_waarde</option>
                 @{
                     for (int i = 0; i < lijst.Count; i++)
                     {
                         var odeel = lijst[i];
                         var prijs = (float)odeel.prijs_in_cent / 100f;
-                        <option value="@odeel.naam">@odeel.naam (@prijs euro pp)</option>
+                        var value = odeel.naam + " (" + prijs + " euro pp)";
+                        <option value="@value">@value</option>
 
                     }
                 }
@@ -79,10 +83,10 @@ if (sessie_waarde == null) {
     {
 
 
-if (sessie_waarde == null)
-{
-    sessie_waarde = "Allergieën ...";
-}
+        if (sessie_waarde == null)
+        {
+            sessie_waarde = "Allergieën ...";
+        }
         <script type="text/javascript">
             function allergieen_showfield(name) {
                 if (name == 'Other') document.getElementById('exp_div').innerHTML = 'Other: <input type="text" name="other" />';
@@ -102,10 +106,10 @@ if (sessie_waarde == null)
 @helper thema_selector(string sessie_waarde)
     {
 
-if (sessie_waarde == null)
-{
-    sessie_waarde = "Kies een thema";
-}
+        if (sessie_waarde == null)
+        {
+            sessie_waarde = "Kies een thema";
+        }
         <script type="text/javascript">
             function showfield(name) {
                 if (name == 'Other') document.getElementById('anders').innerHTML = 'Anders namelijk: <input type="text" name="other" />';
@@ -113,7 +117,7 @@ if (sessie_waarde == null)
             }
         </script>
         <div class="col s3 row">
-    
+
             <select class="breed" name="thema" id="thema" onchange="showfield(this.options[this.selectedIndex].value)">
 
                 <option selected disabled>@sessie_waarde</option>
