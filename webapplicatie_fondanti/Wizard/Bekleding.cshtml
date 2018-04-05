@@ -29,10 +29,10 @@
         </div>
     </nav>
     <form method="post" class="breed">
-        @helpers.wizard.type_cake_select(db)
-        @helpers.wizard.bekleding_select(db)
-        @helpers.wizard.vulling_select(db)
-        @helpers.wizard.niv_decoratie_select(db)
+        @helpers.wizard.type_cake_select(db, Session["taartsoort"] as string)
+        @helpers.wizard.bekleding_select(db, Session["bekleding"] as string)
+        @helpers.wizard.vulling_select(db, Session["vulling"] as string)
+        @helpers.wizard.niv_decoratie_select(db, Session["decoratieniveau"] as string)
 
         <input type="submit" name="submit" value="Volgende" />
     </form>

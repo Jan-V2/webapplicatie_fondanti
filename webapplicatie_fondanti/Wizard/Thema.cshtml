@@ -36,7 +36,7 @@
         </div>
     </div>
     <form method="post" class="breed">
-        @helpers.wizard.thema_selector()
+        @helpers.wizard.thema_selector(Session["thema"] as string)
 
         <input type="submit" name="submit" value="Volgende"/>
     </form>

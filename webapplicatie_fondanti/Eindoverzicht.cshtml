@@ -46,35 +46,35 @@
     </nav>
 
     <div class="formulier">
-        <form method="post" class="breed">
+        <form method="post" class="breed" id="main_form">
 
             <table style="width:100%">
 
                 <tr>
-                    <td>@helpers.wizard.aantal_personen()</td>
+                    <td>@helpers.wizard.aantal_personen(Convert.ToInt32(Session["personen"]))</td>
                     <td></td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>@helpers.wizard.aantal_lagen()</td>
+                    <td>@helpers.wizard.aantal_lagen(Convert.ToInt32(Session["lagen"]))</td>
                     <td></td>
                     <td></td>
                 </tr>
                 <tr>
 
-                    <td>@helpers.wizard.thema_selector()</td>
+                    <td>@helpers.wizard.thema_selector(Session["thema"] as string)</td>
                     <td></td>
                     <td></td>
                 </tr>
-                @helpers.wizard.eindscherm_table_row(@helpers.wizard.type_cake_select(db), "type_cake")
-                @helpers.wizard.eindscherm_table_row(@helpers.wizard.bekleding_select(db), "bekleding")
-                @helpers.wizard.eindscherm_table_row(@helpers.wizard.vulling_select(db), "vulling")
-                @helpers.wizard.eindscherm_table_row(@helpers.wizard.niv_decoratie_select(db), "niv_deco")
+                @helpers.wizard.eindscherm_table_row(@helpers.wizard.type_cake_select(db, Session["taartsoort"] as string), "type_cake")
+                @helpers.wizard.eindscherm_table_row(@helpers.wizard.bekleding_select(db, Session["bekleding"] as string), "bekleding")
+                @helpers.wizard.eindscherm_table_row(@helpers.wizard.vulling_select(db, Session["vulling"] as string), "vulling")
+                @helpers.wizard.eindscherm_table_row(@helpers.wizard.niv_decoratie_select(db, Session["decoratieniveau"] as string), "niv_deco")
                 <tr>
 
-                    <td>@helpers.wizard.allergieen()</td>
-                    <td></td>
-                    <td></td>
+                    <td>@helpers.wizard.allergieen(Session["allergieen"] as string)</td>
+                    <td>Totaal: </td>
+                    <td id="totaal_prijs"></td>
                 </tr>
             </table>
 

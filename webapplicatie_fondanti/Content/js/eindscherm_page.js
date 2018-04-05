@@ -12,10 +12,9 @@ $("document").ready(() => {
            let eind_string = "euro";
            let break_string = "Kies uw";
            if (string.indexOf(break_string) === -1){
-               return parseFloat(
-                   string.slice(string.indexOf(start_string) + start_string.length,
-                       string.indexOf(eind_string))
-               );
+               let numslice = string.slice(string.lastIndexOf(start_string) + start_string.length,
+                   string.lastIndexOf(eind_string));
+               return parseFloat(numslice);
            }else{
                return 0;
            }
@@ -23,20 +22,27 @@ $("document").ready(() => {
 
        let eind_res = 0;
        let personen = + $("#personen_inline")[0].value;
-       console.log(personen);
 
        for (let key in elements){
-           let val = $("select#" +elements[key])[0];
+           let val = $("#" +elements[key])[0];
            let txt = val[val.selectedIndex].textContent;
            let price = grab_price(txt);
            $("#calc_" + key).text(personen + " X " + price + " = ");
            let calced_price = personen * price;
-           $("#res_" + key).text(calced_price);
+           $("#res_" + key).text( "€ " + calced_price);
            eind_res += calced_price;
        }
+       $("#totaal_prijs").text("€ " +  eind_res);
    }
 
    $("#test").click(() => {
        do_calc()
    });
+
+
+   $("#main_form").change((event) => {
+       do_calc();
+   });
+
+   do_calc();
 });

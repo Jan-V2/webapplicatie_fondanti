@@ -1,12 +1,15 @@
 ﻿@using System.Collections.Generic;
 @using System.Collections.ObjectModel;
 
-@helper select_uit_db(string naam_onderdeel, string naam_form, ReadOnlyCollection<Db_Stuff.Onderdeel> lijst)
+@helper select_uit_db(string naam_onderdeel, string naam_form, ReadOnlyCollection<Db_Stuff.Onderdeel> lijst, string sessie_waarde)
     {
+if (sessie_waarde == null) {
+    sessie_waarde = "";
+}
         <div class="input-field col s3 breed" id="breed">
-            <select required name="@naam_form" id="naam_form" >
+            <select required name="@naam_form" id="@naam_form" >
 
-                <option value="" selected disabled>Kies uw @naam_onderdeel</option>
+                <option value="@sessie_waarde" selected disabled>Kies uw @naam_onderdeel</option>
                 @{
                     for (int i = 0; i < lijst.Count; i++)
                     {
@@ -27,53 +30,59 @@
         var naam2 = "res_" + id_naam;
         <tr>
             <td>@elem</td>
-            <td style="width=100px" id="@naam1"></td>
+            <td style="width:100px" id="@naam1"></td>
             <td id="@naam2"></td>
         </tr>
 }
 
-@helper bekleding_select(Db_Stuff.Taarten_Data db)
+@helper bekleding_select(Db_Stuff.Taarten_Data db, string sessie_waarde)
     {
-        @select_uit_db(db.naam_bekleding, "bekleding", db.bekleding)
+        @select_uit_db(db.naam_bekleding, "bekleding", db.bekleding, sessie_waarde)
 
 }
-@helper niv_decoratie_select(Db_Stuff.Taarten_Data db)
+@helper niv_decoratie_select(Db_Stuff.Taarten_Data db, string sessie_waarde)
     {
-        @select_uit_db(db.naam_nivea_van_decoratie, "decoratieniveau", db.nivea_van_decoratie)
+        @select_uit_db(db.naam_nivea_van_decoratie, "decoratieniveau", db.nivea_van_decoratie, sessie_waarde)
 }
-@helper type_cake_select(Db_Stuff.Taarten_Data db)
+@helper type_cake_select(Db_Stuff.Taarten_Data db, string sessie_waarde)
     {
-        @select_uit_db(db.naam_type_cake, "taartsoort", db.type_cake)
+        @select_uit_db(db.naam_type_cake, "taartsoort", db.type_cake, sessie_waarde)
 
 }
-@helper vulling_select(Db_Stuff.Taarten_Data db)
+@helper vulling_select(Db_Stuff.Taarten_Data db, string sessie_waarde)
     {
-        @select_uit_db(db.naam_vulling, "vulling", db.vulling)
+        @select_uit_db(db.naam_vulling, "vulling", db.vulling, sessie_waarde)
 
 }
 
-@helper aantal_lagen()
+@helper aantal_lagen(int sessie_waarde)
     {
         <div class="col s3 row breed">
             Aantal lagen: (minimaal 15 personen per laag.)
             <div class="input-field inline">
-                <input id="personen_inline" type="number" name="lagen" class="validate" min="1" required />
+                <input id="personen_inline" type="number" value="@sessie_waarde" name="lagen" class="validate" min="1" required />
             </div>
         </div>
 }
 
-@helper aantal_personen()
+@helper aantal_personen(int sessie_waarde)
     {
         <div class="col s3 row breed">
             Aantal personen:
             <div class="input-field inline">
-                <input id="personen_inline" type="number" class="validate" name="personen" min="1" required>
+                <input id="personen_inline" type="number" value="@sessie_waarde" class="validate" name="personen" min="1" required>
             </div>
         </div>
 }
 
-@helper allergieen()
+@helper allergieen(string sessie_waarde)
     {
+
+
+if (sessie_waarde == null)
+{
+    sessie_waarde = "Allergieën ...";
+}
         <script type="text/javascript">
             function allergieen_showfield(name) {
                 if (name == 'Other') document.getElementById('exp_div').innerHTML = 'Other: <input type="text" name="other" />';
@@ -82,16 +91,21 @@
         </script>
 
         <select class="breed" name="allergieen" id="travel_arriveVia" onchange="allergieen_showfield(this.options[this.selectedIndex].value)">
-            <option selected="selected">Allergieën ...</option>
-            <option value="Plane">Glutenvrij</option>
-            <option value="Train">geen</option>
+            <option selected disabled>@sessie_waarde</option>
+            <option value="Glutenvrij">Glutenvrij</option>
+            <option value="geen">geen</option>
             <option value="Other">Anders, namelijk</option>
         </select>
         <div id="exp_div"></div>
 }
 
-@helper thema_selector()
+@helper thema_selector(string sessie_waarde)
     {
+
+if (sessie_waarde == null)
+{
+    sessie_waarde = "Kies een thema";
+}
         <script type="text/javascript">
             function showfield(name) {
                 if (name == 'Other') document.getElementById('anders').innerHTML = 'Anders namelijk: <input type="text" name="other" />';
@@ -102,7 +116,7 @@
     
             <select class="breed" name="thema" id="thema" onchange="showfield(this.options[this.selectedIndex].value)">
 
-                <option selected disabled>Kies een thema</option>
+                <option selected disabled>@sessie_waarde</option>
                 <option value="verjaardag volwassenen">Verjaardag volwassene</option>
                 <option value="Verjaardag kind">Verjaardag kind</option>
                 <option value="Bruiloft">Bruiloft</option>
