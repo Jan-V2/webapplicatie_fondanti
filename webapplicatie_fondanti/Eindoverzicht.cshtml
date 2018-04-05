@@ -61,8 +61,12 @@
                     <td></td>
                 </tr>
                 <tr>
-
                     <td>@helpers.wizard.thema_selector(Session["thema"] as string)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>@helpers.wizard.allergieen(Session["allergieen"] as string)</td>
                     <td></td>
                     <td></td>
                 </tr>
@@ -72,7 +76,7 @@
                 @helpers.wizard.eindscherm_table_row(@helpers.wizard.niv_decoratie_select(db, Session["decoratieniveau"] as string), "niv_deco")
                 <tr>
 
-                    <td>@helpers.wizard.allergieen(Session["allergieen"] as string)</td>
+                    <td></td>
                     <td>Totaal: </td>
                     <td id="totaal_prijs"></td>
                 </tr>
