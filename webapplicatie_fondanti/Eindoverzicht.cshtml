@@ -7,7 +7,7 @@
     string decoratieniveau = Convert.ToString(Session["decoratieniveau"]);
     string Thema = Convert.ToString(Session["thema"]);
     string lagen = Convert.ToString(Session["lagen"]);
-    string allergie = Convert.ToString(Session["allergieen"]);
+    string allergie = Convert.ToString(Session["allergieen_test"]);
 
     if (IsPost)
     {
@@ -18,7 +18,7 @@
         Session["decoratieniveau"] = Request.Form["decoratieniveau"];
         Session["thema"] = Request.Form["thema"];
         Session["lagen"] = Request.Form["lagen"];
-        Session["allergieen"] = Request.Form["allergieen"];
+        Session["allergieen_test"] = Request.Form["allergieen_test"];
         Session["tot_str"] = Request.Form["tot_str"];
         Response.Redirect("gegevens.cshtml");
     }
@@ -67,7 +67,7 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td>@helpers.wizard.allergieen(Session["allergieen"] as string)</td>
+                    <td>@helpers.wizard.allergieen(Session["allergieen_test"] as string)</td>
                     <td></td>
                     <td></td>
                 </tr>

@@ -1,7 +1,7 @@
 ﻿@{
     if (IsPost)
     {
-        Session["allergieen"] = Request.Form["allergieen"];
+        Session["allergieen_test"] = Request.Form["allergieen_test"];
         Response.Redirect("/Eindoverzicht.cshtml");
         
     }
@@ -25,7 +25,7 @@
         </div>
     </nav>
     <form method="post" class="breed">
-        @helpers.wizard.allergieen( Session["allergieen"] as string)
+        @helpers.wizard.allergieen( Session["allergieen_test"] as string)
 
 
 
