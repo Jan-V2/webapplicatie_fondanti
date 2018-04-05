@@ -25,16 +25,15 @@
             </ul>
         </div>
     </nav>
-    <div class="file-field input-field">
+    @*<div class="file-field input-field">
         <div class="btn">
             <span>File</span>
             <input type="file" multiple>
         </div>
         <div class="file-path-wrapper">
-            @* File upload moet nog in een session *@
             <input class="file-path validate" type="text" placeholder="(Optioneel) Upload een foto ter inspiratie">
         </div>
-    </div>
+    </div>*@
     <form method="post" class="breed">
         @helpers.wizard.thema_selector(Session["thema"] as string)
 
