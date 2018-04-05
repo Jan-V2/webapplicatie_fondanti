@@ -26,7 +26,7 @@
         </div>
     </nav>
     <form method="post" class="breed">
-        @helpers.wizard.aantal_personen(Convert.ToInt32(Session["personen"]));
+        @helpers.wizard.aantal_personen(Convert.ToInt32(Session["personen"]))
         <input type="submit" name="submit" value="Volgende" />
 
     </form>
